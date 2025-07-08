@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #1f2937;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 26px;
+      margin-bottom: 5px;
+      color: #1e293b;
+    }
+    .section-title {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #2563eb;
+      border-bottom: 2px solid #2563eb;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .info-group {
+      margin: 12px 0;
+      font-size: 16px;
+      color: #334155;
+    }
+    .info-group strong {
+      color: #475569;
+      display: inline-block;
+      width: 200px;
+    }
+    .info-group i {
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    ul li {
+      margin-bottom: 6px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="siet.jpg" alt="SIET Logo" height="60">
+</header>
+
+<div class="container">
+  <div style="text-align: center;">
+    <img id="photo" class="profile-pic" src="" alt="Student Photo">
+    <h2 id="name"></h2>
+  </div>
+
+  <div class="info-group"><strong><i class="fa-solid fa-id-card" style="color:#2563eb;"></i> Roll No:</strong> <span id="roll"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-building-columns" style="color:#10b981;"></i> Department:</strong> <span id="department"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-calendar-alt" style="color:#f59e0b;"></i> Year:</strong> <span id="year"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-location-dot" style="color:#ef4444;"></i> Address:</strong> <span id="address"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-droplet" style="color:#ec4899;"></i> Blood Group:</strong> <span id="bloodGroup"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-envelope" style="color:#6366f1;"></i> Email:</strong> <span id="email"></span></div>
+  <div class="info-group"><strong><i class="fa-solid fa-phone" style="color:#22c55e;"></i> Phone:</strong> <span id="phone"></span></div>
+
+  <div class="section-title"><i class="fa-solid fa-lightbulb" style="margin-right: 6px;"></i>Skills</div>
+  <ul id="skillsList"></ul>
+
+  <div class="section-title"><i class="fa-solid fa-graduation-cap" style="margin-right: 6px;"></i>Educational Details</div>
+  <div class="info-group"><strong><i class="fa-solid fa-school" style="color:#14b8a6;"></i> 10th School:</strong> <span id="school10"></span> | Marks: <span id="marks10"></span>%</div>
+  <div class="info-group"><strong><i class="fa-solid fa-school" style="color:#14b8a6;"></i> 12th School:</strong> <span id="school12"></span> | Marks: <span id="marks12"></span>%</div>
+  <div class="info-group"><strong><i class="fa-solid fa-building" style="color:#0ea5e9;"></i> College:</strong> <span id="collegeUG"></span> | CGPA: <span id="cgpaUG"></span></div>
+
+  <div class="section-title"><i class="fa-solid fa-diagram-project" style="margin-right: 6px;"></i>Project Description</div>
+  <textarea id="projectDesc" placeholder="Write about your projects here..."></textarea>
+
+  <a href="studhome.html" class="btn"><i class="fa-solid fa-arrow-left"></i> Back to List</a>
+  <button class="btn" onclick="downloadResume()"><i class="fa-solid fa-download"></i> Download Resume</button>
+</div>
+
+<script>
+  const student = JSON.parse(localStorage.getItem("selectedStudent"));
+
+  if (student) {
+    document.getElementById("photo").src = student.photo || 'default-photo.png';
+    document.getElementById("name").textContent = student.name || "Name not available";
+    document.getElementById("roll").textContent = student.rollno || "N/A";
+    document.getElementById("department").textContent = student.department || "N/A";
+    document.getElementById("year").textContent = student.year || "N/A";
+    document.getElementById("address").textContent = student.address || "N/A";
+    document.getElementById("bloodGroup").textContent = student.bloodgroup || "N/A";
+    document.getElementById("email").textContent = student.email || "N/A";
+    document.getElementById("phone").textContent = student.phone || "N/A";
+    document.getElementById("school10").textContent = student.school10 || "N/A";
+    document.getElementById("marks10").textContent = student.marks10 || "N/A";
+    document.getElementById("school12").textContent = student.school12 || "N/A";
+    document.getElementById("marks12").textContent = student.marks12 || "N/A";
+    document.getElementById("collegeUG").textContent = student.collegeUG || "N/A";
+    document.getElementById("cgpaUG").textContent = student.cgpaUG || "N/A";
+
+    const skillsList = document.getElementById("skillsList");
+    const skills = Array.isArray(student.skills) ? student.skills : (typeof student.skills === "string" ? student.skills.split(",") : []);
+    skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill.trim();
+      skillsList.appendChild(li);
+    });
+  } else {
+    document.body.innerHTML = "<h2 style='text-align:center; padding: 40px;'>No student data found.</h2>";
+  }
+
+  async function downloadResume() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let y = 20;
+    doc.setFontSize(16);
+    doc.text("Resume", 90, y);
+    y += 10;
+
+    const getText = id => document.getElementById(id).textContent;
+    const projectText = document.getElementById("projectDesc").value;
+
+    const lines = [
+      `Name: ${getText("name")}`,
+      `Roll No: ${getText("roll")}`,
+      `Department: ${getText("department")}`,
+      `Year: ${getText("year")}`,
+      `Address: ${getText("address")}`,
+      `Blood Group: ${getText("bloodGroup")}`,
+      `Email: ${getText("email")}`,
+      `Phone: ${getText("phone")}`,
+      `10th School: ${getText("school10")} | Marks: ${getText("marks10")}%`,
+      `12th School: ${getText("school12")} | Marks: ${getText("marks12")}%`,
+      `College: ${getText("collegeUG")} | CGPA: ${getText("cgpaUG")}`,
+      ``,
+      `Skills:`,
+      ...Array.from(document.querySelectorAll("#skillsList li")).map(li => `- ${li.textContent}`),
+      ``,
+      `Project Description:`,
+      ...projectText.split("\n")
+    ];
+
+    doc.setFontSize(12);
+    lines.forEach(line => {
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+      doc.text(line, 20, y);
+      y += 8;
+    });
+
+    doc.save(`${getText("name") || "Resume"}.pdf`);
+  }
+</script>
+
+</body>
+</html>

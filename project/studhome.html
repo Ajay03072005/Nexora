@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Info Table</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 40px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    #controls input, #controls select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: green;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f0f0f0;
+    }
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="siet.jpg" alt="SIET Logo" height="60">
+</header>
+
+<main>
+  <h1>Student List</h1>
+
+  <div id="controls">
+    <input type="file" id="uploadExcel" accept=".xlsx, .xls" />
+    <select id="deptFilter">
+      <option value="">All Departments</option>
+    </select>
+    <select id="yearFilter">
+      <option value="">All Years</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Search by any field" />
+  </div>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Address</th>
+        <th>Blood Group</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+
+<script>
+
+  let studentsData = [];
+  const tbody = document.querySelector("#studentTable tbody");
+  const deptFilter = document.getElementById("deptFilter");
+  const yearFilter = document.getElementById("yearFilter");
+  const searchInput = document.getElementById("searchInput");
+
+  document.getElementById("uploadExcel").addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    localStorage.removeItem("studentsList"); // Clear old cache
+
+    const reader = new FileReader();
+    reader.onload = function (evt) {
+      const data = new Uint8Array(evt.target.result);
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const raw = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+
+      const normalizedData = raw.map((stu) => {
+        const student = {};
+        for (let key in stu) {
+          const cleanKey = key.replace(/\s/g, "").toLowerCase();
+
+          if (cleanKey.includes("roll")) student.rollno = String(stu[key]);
+          else if (cleanKey.includes("name")) student.name = stu[key];
+          else if (cleanKey.includes("depart")) student.department = stu[key];
+          else if (cleanKey.includes("year")) student.year = String(stu[key]);
+          else if (cleanKey.includes("address")) student.address = stu[key];
+          else if (cleanKey.includes("blood")) student.bloodgroup = stu[key];
+          else if (cleanKey.includes("email")) student.email = stu[key];
+          else if (cleanKey.includes("phone")) student.phone = stu[key];
+          else if (cleanKey.includes("10") && cleanKey.includes("school")) student.school10 = String(stu[key]);
+          else if (cleanKey.includes("10") && cleanKey.includes("mark")) student.marks10 = String(stu[key]);
+          else if (cleanKey.includes("12") && cleanKey.includes("mark")) student.marks12 = String(stu[key]);
+          else if (cleanKey.includes("college") || cleanKey.includes("ug")) student.collegeUG = String(stu[key]);
+          else if (cleanKey.includes("cgpa")) student.cgpaUG = String(stu[key]);
+          else if (cleanKey.includes("skill")) {
+            const skillsValue = stu[key];
+            student.skills = typeof skillsValue === "string"
+              ? skillsValue.split(",").map(s => s.trim())
+              : [];
+          }
+          // Check for image URL or base64
+          else if (cleanKey.includes("photo") || cleanKey.includes("image")) {
+            const imageValue = stu[key];
+            if (imageValue && (imageValue.startsWith("http") || imageValue.startsWith("data:image"))) {
+              student.photo = imageValue; // Use image URL or base64 string directly
+            } else {
+              student.photo = "default.png"; // Use default image if no valid image found
+            }
+          }
+        }
+
+        return student;
+      });
+
+      studentsData = normalizedData;
+      localStorage.setItem("studentsList", JSON.stringify(studentsData)); // Save full list
+      populateFilters();
+      renderTable();
+    };
+
+    reader.readAsArrayBuffer(file);
+  });
+
+  function populateFilters() {
+    const depts = [...new Set(studentsData.map(s => s.department).filter(Boolean))];
+    const years = [...new Set(studentsData.map(s => s.year).filter(Boolean))];
+
+    deptFilter.innerHTML = `<option value="">All Departments</option>` +
+      depts.map(d => `<option value="${d}">${d}</option>`).join("");
+
+    yearFilter.innerHTML = `<option value="">All Years</option>` +
+      years.map(y => `<option value="${y}">${y}</option>`).join("");
+
+    // Restore previous filter values if available
+    deptFilter.value = localStorage.getItem("filter_dept") || "";
+    yearFilter.value = localStorage.getItem("filter_year") || "";
+    searchInput.value = localStorage.getItem("search_text") || "";
+  }
+
+  function renderTable() {
+    const search = searchInput.value.toLowerCase();
+    const deptVal = deptFilter.value;
+    const yearVal = yearFilter.value;
+
+    // Save filters to localStorage
+    localStorage.setItem("filter_dept", deptVal);
+    localStorage.setItem("filter_year", yearVal);
+    localStorage.setItem("search_text", searchInput.value);
+
+    tbody.innerHTML = "";
+    let filteredIndex = 1;
+
+    studentsData.forEach((stu, index) => {
+      if (deptVal && stu.department !== deptVal) return;
+      if (yearVal && stu.year !== yearVal) return;
+
+      const rowText = Object.values(stu).join(" ").toLowerCase();
+      if (search && !rowText.includes(search)) return;
+
+      const row = `
+        <tr>
+          <td>${filteredIndex++}</td>
+          <td><img src="${stu.photo}" width="60" height="60" alt="Student Image"></td>
+          <td>${stu.name}</td>
+          <td>${stu.rollno}</td>
+          <td>${stu.department}</td>
+          <td>${stu.year}</td>
+          <td>${stu.address}</td>
+          <td>${stu.bloodgroup}</td>
+          <td><button onclick="viewStudent(${index})">More Info</button></td>
+        </tr>
+      `;
+      tbody.insertAdjacentHTML("beforeend", row);
+    });
+  }
+
+  function viewStudent(index) {
+    const student = studentsData[index];
+    localStorage.setItem("selectedStudent", JSON.stringify(student));
+    window.location.href = "stud.html";
+  }
+
+  deptFilter.addEventListener("change", renderTable);
+  yearFilter.addEventListener("change", renderTable);
+  searchInput.addEventListener("input", renderTable);
+
+  // Restore data from localStorage on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedData = localStorage.getItem("studentsList");
+    if (savedData) {
+      studentsData = JSON.parse(savedData);
+      populateFilters();
+      renderTable();
+    }
+  });
+
+
+</script>
+
+</body>
+</html>

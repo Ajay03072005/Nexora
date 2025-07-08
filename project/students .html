@@ -1,0 +1,774 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+  <style>
+    /* Basic reset and global styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Main container */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Profile Picture */
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #e2e8f0;
+    }
+
+    /* Student Name */
+    h2 {
+      font-size: 26px;
+      margin-bottom: 5px;
+      color: #1e293b;
+    }
+
+    /* Section Titles */
+    .section-title {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #2563eb;
+      border-bottom: 2px solid #2563eb;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Info Groups (labels and values) */
+    .info-group {
+      margin: 12px 0;
+      font-size: 16px;
+      color: #334155;
+    }
+
+    .info-group strong {
+      color: #475569;
+      display: inline-block;
+      width: 160px;
+    }
+
+    /* Skills List */
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #334155;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .info-group strong {
+        display: block;
+        width: 100%;
+        margin-bottom: 4px;
+      }
+
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .info-group {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="siet.jpg" alt="SIET Logo" height="60">
+</header>
+
+<div class="container">
+  <div style="text-align: center;">
+    <img id="photo" class="profile-pic" src="" alt="Student Photo">
+    <h2 id="name"></h2>
+  </div>
+
+  <div class="info-group"><strong>Roll No:</strong> <span id="roll"></span></div>
+  <div class="info-group"><strong>Department:</strong> <span id="department"></span></div>
+  <div class="info-group"><strong>Year:</strong> <span id="year"></span></div>
+  <div class="info-group"><strong>Address:</strong> <span id="address"></span></div>
+  <div class="info-group"><strong>Blood Group:</strong> <span id="bloodGroup"></span></div>
+  <div class="info-group"><strong>Email:</strong> <span id="email"></span></div>
+  <div class="info-group"><strong>Phone:</strong> <span id="phone"></span></div>
+
+  <div class="section-title">Skills</div>
+  <ul id="skillsList"></ul>
+
+  <div class="section-title">Educational Details</div>
+  <div class="info-group"><strong>10th School:</strong> <span id="school10"></span> | Marks: <span id="marks10"></span>%</div>
+  <div class="info-group"><strong>12th School:</strong> <span id="school12"></span> | Marks: <span id="marks12"></span>%</div>
+  <div class="info-group"><strong>College:</strong> <span id="collegeUG"></span> | CGPA: <span id="cgpaUG"></span></div>
+
+  <a href="studhome.html" class="back-btn">&larr; Back to List</a>
+</div>
+
+<script>
+  // Retrieve student data from localStorage
+  const student = JSON.parse(localStorage.getItem("selectedStudent"));
+
+  if (student) {
+    console.log(student); // Log the student object to check the data
+
+    // Display student photo and name
+    document.getElementById("photo").src = student.photo || 'default-photo.png';
+    document.getElementById("name").textContent = student.name || "Name not available";
+
+    // Display other student details
+    document.getElementById("roll").textContent = student.rollno || "Roll No not available";
+    document.getElementById("department").textContent = student.department || "Department not available";
+    document.getElementById("year").textContent = student.year || "Year not available";
+    document.getElementById("address").textContent = student.address || "Address not available";
+    document.getElementById("bloodGroup").textContent = student.bloodgroup || "Blood Group not available";
+    document.getElementById("email").textContent = student.email || "Email not available";
+    document.getElementById("phone").textContent = student.phone || "Phone not available";
+    document.getElementById("school10").textContent = student.school10 || "School not available";
+    document.getElementById("marks10").textContent = student.marks10 || "Marks not available";
+    document.getElementById("school12").textContent = student.school12 || "School not available";
+    document.getElementById("marks12").textContent = student.marks12 || "Marks not available";
+    document.getElementById("collegeUG").textContent = student.collegeUG || "College not available";
+    document.getElementById("cgpaUG").textContent = student.cgpaUG || "CGPA not available";
+
+    // Display Skills
+    const skillsList = document.getElementById("skillsList");
+    const rawSkills = student.skills || [];
+    const skills = Array.isArray(rawSkills) ? rawSkills : (typeof rawSkills === "string" ? rawSkills.split(",") : []);
+    skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill.trim();
+      skillsList.appendChild(li);
+    });
+  } else {
+    document.body.innerHTML = "<h2 style='text-align:center; padding: 40px;'>No student data found.</h2>";
+  }
+</script>
+
+</body>
+</html> <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Info Table</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 40px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    #controls input, #controls select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: green;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f0f0f0;
+    }
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="siet.jpg" alt="SIET Logo" height="60">
+</header>
+
+<main>
+  <h1>Student List</h1>
+
+  <div id="controls">
+    <input type="file" id="uploadExcel" accept=".xlsx, .xls" />
+    <select id="deptFilter">
+      <option value="">All Departments</option>
+    </select>
+    <select id="yearFilter">
+      <option value="">All Years</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Search by any field" />
+  </div>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Address</th>
+        <th>Blood Group</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+
+<script>
+  let studentsData = [];
+  const tbody = document.querySelector("#studentTable tbody");
+  const deptFilter = document.getElementById("deptFilter");
+  const yearFilter = document.getElementById("yearFilter");
+  const searchInput = document.getElementById("searchInput");
+
+  document.getElementById("uploadExcel").addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+
+    reader.onload = function (evt) {
+      const data = new Uint8Array(evt.target.result);
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const raw = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+
+      const normalizedData = raw.map((stu) => {
+        const student = {};
+        for (let key in stu) {
+          const cleanKey = key.replace(/\s/g, "").toLowerCase();
+
+          if (cleanKey.includes("roll")) student.rollno = String(stu[key]);
+          else if (cleanKey.includes("name")) student.name = stu[key];
+          else if (cleanKey.includes("depart")) student.department = stu[key];
+          else if (cleanKey.includes("year")) student.year = String(stu[key]);
+          else if (cleanKey.includes("address")) student.address = stu[key];
+          else if (cleanKey.includes("blood")) student.bloodgroup = stu[key];
+          else if (cleanKey.includes("email")) student.email = stu[key];
+          else if (cleanKey.includes("phone")) student.phone = stu[key];
+          else if (cleanKey.includes("10") && cleanKey.includes("school")) student.school10 = String(stu[key]);
+          else if (cleanKey.includes("10") && cleanKey.includes("mark")) student.marks10 = String(stu[key]);
+          else if (cleanKey.includes("12") && cleanKey.includes("mark")) student.marks12 = String(stu[key]);
+          else if (cleanKey.includes("college") || cleanKey.includes("ug")) student.collegeUG = String(stu[key]);
+          else if (cleanKey.includes("cgpa")) student.cgpaUG = String(stu[key]);
+          else if (cleanKey.includes("skill")) {
+            const skillsValue = stu[key];
+            student.skills = typeof skillsValue === "string"
+              ? skillsValue.split(",").map(s => s.trim())
+              : [];
+          }
+        }
+
+        student.photo = student.rollno
+          ? `https://robohash.org/${encodeURIComponent(student.rollno)}.png?size=60x60`
+          : "default.png";
+
+        return student;
+      });
+
+      studentsData = normalizedData;
+      populateFilters();
+      renderTable();
+    };
+
+    reader.readAsArrayBuffer(file);
+  });
+
+  function populateFilters() {
+    const depts = [...new Set(studentsData.map(s => s.department).filter(Boolean))];
+    const years = [...new Set(studentsData.map(s => s.year).filter(Boolean))];
+
+    deptFilter.innerHTML = `<option value="">All Departments</option>` +
+      depts.map(d => `<option value="${d}">${d}</option>`).join("");
+
+    yearFilter.innerHTML = `<option value="">All Years</option>` +
+      years.map(y => `<option value="${y}">${y}</option>`).join("");
+  }
+
+  function renderTable() {
+    const search = searchInput.value.toLowerCase();
+    const deptVal = deptFilter.value;
+    const yearVal = yearFilter.value;
+
+    tbody.innerHTML = "";
+    let filteredIndex = 1;
+
+    studentsData.forEach((stu, index) => {
+      if (deptVal && stu.department !== deptVal) return;
+      if (yearVal && stu.year !== yearVal) return;
+
+      const rowText = Object.values(stu).join(" ").toLowerCase();
+      if (search && !rowText.includes(search)) return;
+
+      const row = `
+        <tr>
+          <td>${filteredIndex++}</td>
+          <td><img src="${stu.photo}" width="60" height="60" alt=""></td>
+          <td>${stu.name}</td>
+          <td>${stu.rollno}</td>
+          <td>${stu.department}</td>
+          <td>${stu.year}</td>
+          <td>${stu.address}</td>
+          <td>${stu.bloodgroup}</td>
+          <td><button onclick="viewStudent(${index})">More Info</button></td>
+        </tr>
+      `;
+      tbody.insertAdjacentHTML("beforeend", row);
+    });
+  }
+
+  function viewStudent(index) {
+    const student = studentsData[index];
+    localStorage.setItem("selectedStudent", JSON.stringify(student));
+    window.location.href = "stud.html";
+  }
+
+  deptFilter.addEventListener("change", renderTable);
+  yearFilter.addEventListener("change", renderTable);
+  searchInput.addEventListener("input", renderTable);
+</script>
+
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #1f2937;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 26px;
+      margin-bottom: 5px;
+      color: #1e293b;
+    }
+    .section-title {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #2563eb;
+      border-bottom: 2px solid #2563eb;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .info-group {
+      margin: 12px 0;
+      font-size: 16px;
+      color: #334155;
+    }
+    .info-group strong {
+      color: #475569;
+      display: inline-block;
+      width: 160px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    ul li {
+      margin-bottom: 6px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="siet.jpg" alt="SIET Logo" height="60">
+</header>
+
+<div class="container">
+  <div style="text-align: center;">
+    <img id="photo" class="profile-pic" src="" alt="Student Photo">
+    <h2 id="name"></h2>
+  </div>
+
+  <div class="info-group"><strong>Roll No:</strong> <span id="roll"></span></div>
+  <div class="info-group"><strong>Department:</strong> <span id="department"></span></div>
+  <div class="info-group"><strong>Year:</strong> <span id="year"></span></div>
+  <div class="info-group"><strong>Address:</strong> <span id="address"></span></div>
+  <div class="info-group"><strong>Blood Group:</strong> <span id="bloodGroup"></span></div>
+  <div class="info-group"><strong>Email:</strong> <span id="email"></span></div>
+  <div class="info-group"><strong>Phone:</strong> <span id="phone"></span></div>
+
+  <div class="section-title">Skills</div>
+  <ul id="skillsList"></ul>
+
+  <div class="section-title">Educational Details</div>
+  <div class="info-group"><strong>10th School:</strong> <span id="school10"></span> | Marks: <span id="marks10"></span>%</div>
+  <div class="info-group"><strong>12th School:</strong> <span id="school12"></span> | Marks: <span id="marks12"></span>%</div>
+  <div class="info-group"><strong>College:</strong> <span id="collegeUG"></span> | CGPA: <span id="cgpaUG"></span></div>
+
+  <div class="section-title">Project Description</div>
+  <textarea id="projectDesc" placeholder="Write about your projects here..."></textarea>
+
+  <a href="studhome.html" class="btn">&larr; Back to List</a>
+  <button class="btn" onclick="downloadResume()">Download Resume</button>
+</div>
+
+<script>
+  const student = JSON.parse(localStorage.getItem("selectedStudent"));
+
+  if (student) {
+    document.getElementById("photo").src = student.photo || 'default-photo.png';
+    document.getElementById("name").textContent = student.name || "Name not available";
+    document.getElementById("roll").textContent = student.rollno || "N/A";
+    document.getElementById("department").textContent = student.department || "N/A";
+    document.getElementById("year").textContent = student.year || "N/A";
+    document.getElementById("address").textContent = student.address || "N/A";
+    document.getElementById("bloodGroup").textContent = student.bloodgroup || "N/A";
+    document.getElementById("email").textContent = student.email || "N/A";
+    document.getElementById("phone").textContent = student.phone || "N/A";
+    document.getElementById("school10").textContent = student.school10 || "N/A";
+    document.getElementById("marks10").textContent = student.marks10 || "N/A";
+    document.getElementById("school12").textContent = student.school12 || "N/A";
+    document.getElementById("marks12").textContent = student.marks12 || "N/A";
+    document.getElementById("collegeUG").textContent = student.collegeUG || "N/A";
+    document.getElementById("cgpaUG").textContent = student.cgpaUG || "N/A";
+
+    const skillsList = document.getElementById("skillsList");
+    const skills = Array.isArray(student.skills) ? student.skills : (typeof student.skills === "string" ? student.skills.split(",") : []);
+    skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill.trim();
+      skillsList.appendChild(li);
+    });
+  } else {
+    document.body.innerHTML = "<h2 style='text-align:center; padding: 40px;'>No student data found.</h2>";
+  }
+
+  async function downloadResume() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let y = 20;
+    doc.setFontSize(16);
+    doc.text("Resume", 90, y);
+    y += 10;
+
+    const getText = id => document.getElementById(id).textContent;
+    const projectText = document.getElementById("projectDesc").value;
+
+    const lines = [
+      `Name: ${getText("name")}`,
+      `Roll No: ${getText("roll")}`,
+      `Department: ${getText("department")}`,
+      `Year: ${getText("year")}`,
+      `Address: ${getText("address")}`,
+      `Blood Group: ${getText("bloodGroup")}`,
+      `Email: ${getText("email")}`,
+      `Phone: ${getText("phone")}`,
+      `10th School: ${getText("school10")} | Marks: ${getText("marks10")}%`,
+      `12th School: ${getText("school12")} | Marks: ${getText("marks12")}%`,
+      `College: ${getText("collegeUG")} | CGPA: ${getText("cgpaUG")}`,
+      ``,
+      `Skills:`,
+      ...Array.from(document.querySelectorAll("#skillsList li")).map(li => `- ${li.textContent}`),
+      ``,
+      `Project Description:`,
+      ...projectText.split("\n")
+    ];
+
+    doc.setFontSize(12);
+    lines.forEach(line => {
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+      doc.text(line, 20, y);
+      y += 8;
+    });
+
+    doc.save(`${getText("name") || "Resume"}.pdf`);
+  }
+</script>
+
+</body>
+</html> --> 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .info {
+      margin-bottom: 15px;
+    }
+    .info label {
+      font-weight: bold;
+    }
+    #skillsList {
+      margin-top: 5px;
+      padding-left: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 5px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+    button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="studentName">Student Name</h2>
+  <div class="info"><label>Roll No:</label> <span id="roll"></span></div>
+  <div class="info"><label>Department:</label> <span id="department"></span></div>
+  <div class="info"><label>Email:</label> <span id="email"></span></div>
+  <div class="info"><label>Skills:</label>
+    <ul id="skillsList"></ul>
+  </div>
+  <div class="info">
+    <label for="projectDesc">Project Description:</label>
+    <textarea id="projectDesc" placeholder="Describe your project..."></textarea>
+  </div>
+  <button onclick="downloadResume()">Download Resume</button>
+</div>
+
+<script>
+  const student = JSON.parse(localStorage.getItem("selectedStudent"));
+
+  if (!student) {
+    alert("No student data found in localStorage!");
+  } else {
+    document.getElementById("studentName").textContent = student.name || "N/A";
+    document.getElementById("roll").textContent = student.rollno || "N/A";
+    document.getElementById("department").textContent = student.department || "N/A";
+    document.getElementById("email").textContent = student.email || "N/A";
+
+    const skillsList = document.getElementById("skillsList");
+    const skills = Array.isArray(student.skills) ? student.skills : (student.skills || "").split(",");
+    skillsList.innerHTML = "";
+    skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill.trim();
+      skillsList.appendChild(li);
+    });
+  }
+
+  async function downloadResume() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    let y = 10;
+
+    doc.setFont("Helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text(student.name || "", 10, y); y += 8;
+
+    doc.setFont("Helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text(`Roll No: ${student.rollno || ""}`, 10, y); y += 6;
+    doc.text(`Department: ${student.department || ""}`, 10, y); y += 6;
+    doc.text(`Email: ${student.email || ""}`, 10, y); y += 8;
+
+    doc.setFont("Helvetica", "bold");
+    doc.setFontSize(13);
+    doc.text("Skills:", 10, y); y += 6;
+
+    doc.setFont("Helvetica", "normal");
+    const skills = Array.isArray(student.skills) ? student.skills : (student.skills || "").split(",");
+    skills.forEach(skill => {
+      doc.text(`- ${skill.trim()}`, 12, y); y += 6;
+    });
+
+    y += 4;
+    doc.setFont("Helvetica", "bold");
+    doc.text("Project Description:", 10, y); y += 6;
+
+    doc.setFont("Helvetica", "normal");
+    const projectText = document.getElementById("projectDesc").value || "N/A";
+    const lines = doc.splitTextToSize(projectText, 180);
+    doc.text(lines, 10, y);
+
+    doc.save(`${student.name.replaceAll(" ", "_")}_Resume.pdf`);
+  }
+</script>
+
+</body>
+</html>-->
