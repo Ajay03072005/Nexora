@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Selection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <h1>Welcome</h1>
+<br>
+  <p>Select your login type</p>  <div class="login-options">
+    <br>
+    <div class="login-card" onclick="redirectTo('alumni.html')">
+      <img class="faby" src="aluminilogo.png" alt="Alumni Logo">
+      <h3>Alumni</h3>
+    </div><div class="login-card" onclick="redirectTo('student.html')">
+  <img class="faby" src="stdlogo.webp" alt="Student Logo">
+  <h3>Student <a href="student.html"></a></h3>
+</div>
+<div class="login-card" onclick="redirectTo('admin.html')">
+  <img class="faby" src="adminlogo.jpg" alt="Admin Logo">
+  <h3>Admin</h3>
+</div>
+  </div>  <script>
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script></body>
+</html>

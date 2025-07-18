@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stdstyle.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Student</h2>
+    <ul>
+      <li onclick="showSection('dashboard')">Dashboard</li>
+      <li onclick="showSection('notifications')">Notifications</li>
+      <li onclick="showSection('events')">Upcoming Events</li>
+      <li onclick="showSection('profile')">Profile</li>
+      <li onclick="showSection('settings')">Settings</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1 id="section-title">Dashboard</h1>
+    </div>
+
+    <div id="dashboard" class="section">
+      <div class="cards">
+        <div class="card">
+          <h3>Enrolled Courses</h3>
+          <p>You are enrolled in 5 courses.</p>
+        </div>
+        <div class="card">
+          <h3>Attendance</h3>
+          <p>Your overall attendance is 92%.</p>
+        </div>
+        <div class="card">
+          <h3>Grades</h3>
+          <p>Latest GPA: 7.8</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="notifications" class="section" style="display: none">
+      <div class="cards">
+        <div class="card">
+          <h3>Internship </h3>
+          <p><a href="Internship.html">Click to see more Details about your Mentors & Job Opportunities</a></p>
+        </div>
+        <div class="card">
+          <h3>Library Due</h3>
+          <p>Please return borrowed books before 20th April.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="events" class="section" style="display: none">
+      <div class="cards">
+        <div class="card">
+          <h3>Hackathon</h3>
+          <p>Join the inter-college hackathon on 25th April.</p>
+        </div>
+        <div class="card">
+          <h3>Alumni Meet</h3>
+          <p>Annual Alumni Meet scheduled for 30th April.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile" class="section" style="display: none">
+      <div class="cards">
+        <div class="card">
+          <h3>Student Name</h3>
+          <p>Ashwin shanmughanathan</p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p>ashwin23siet@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings" class="section" style="display: none">
+      <div class="cards">
+        <div class="card">
+          <h3>Change Password</h3>
+          <p>Update your login credentials securely.</p>
+        </div>
+        <div class="card">
+          <h3>Theme</h3>
+          <p>Dark/Light mode coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      const title = document.getElementById('section-title');
+      sections.forEach(section => section.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      title.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+    }
+  </script>
+</body>
+</html>
+
+
+
+

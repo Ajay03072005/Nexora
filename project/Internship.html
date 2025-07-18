@@ -1,0 +1,335 @@
+<!DOCTYPE html> <html lang="en">      
+<head>      
+  <meta charset="UTF-8" />      
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
+  <title>Interactive Mentorship Board</title>      
+  <style>      
+    body {      
+      background: #f1f6fb;      
+      font-family: 'Segoe UI', sans-serif;      
+      padding: 40px;      
+      color: #2c3e50;      
+    } h1, h2 {      
+  text-align: center;      
+  color: #1f3c88;      
+}      
+  
+.mentor-list, .mentor-profile, .chat-section {      
+  max-width: 900px;      
+  margin: auto;      
+  display: none;      
+}      
+  
+.active { display: block; }      
+  
+.mentor-card {      
+  background: #fff;      
+  border-radius: 15px;      
+  display: flex;      
+  align-items: center;      
+  padding: 20px;      
+  margin-bottom: 20px;      
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);      
+}      
+  
+.mentor-card img {      
+  width: 80px;      
+  height: 80px;      
+  border-radius: 50%;      
+  margin-right: 20px;      
+  object-fit: cover;      
+}      
+  
+.mentor-info { flex: 1; }      
+  
+.btn {      
+  background: #1f3c88;      
+  color: white;      
+  padding: 10px 16px;      
+  border: none;      
+  border-radius: 25px;      
+  cursor: pointer;      
+}      
+  
+.btn:hover { background: #153477; }      
+  
+.profile-card {      
+  background: #fff;      
+  padding: 25px;      
+  border-radius: 20px;      
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);      
+}      
+  
+.profile-card img {      
+  width: 100px;      
+  height: 100px;      
+  border-radius: 50%;      
+  display: block;      
+  margin: auto;      
+  object-fit: cover;      
+}      
+  
+.chat-box {      
+  background: white;      
+  border-radius: 15px;      
+  padding: 20px;      
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);      
+}      
+  
+.chat-messages {      
+  border: 1px solid #ccc;      
+  border-radius: 10px;      
+  height: 250px;      
+  padding: 10px;      
+  overflow-y: auto;      
+  margin-bottom: 10px;      
+  background: #f9f9f9;      
+}      
+  
+.chat-message {      
+  display: flex;      
+  align-items: flex-end;      
+  margin: 8px 0;      
+}      
+  
+.chat-message img {      
+  width: 30px;      
+  height: 30px;      
+  border-radius: 50%;      
+  object-fit: cover;      
+}      
+  
+.chat-bubble {      
+  max-width: 70%;      
+  padding: 10px 14px;      
+  border-radius: 15px;      
+  margin: 0 10px;      
+}      
+  
+.you { flex-direction: row-reverse; }      
+.you .chat-bubble { background: #1f3c88; color: white; border-bottom-right-radius: 2px; }      
+.mentor .chat-bubble { background: #e3fcef; color: #2e7d32; border-bottom-left-radius: 2px; }      
+  
+.chat-input {      
+  display: flex;      
+  gap: 10px;      
+}      
+  
+.chat-input input {      
+  flex: 1;      
+  padding: 10px;      
+  border-radius: 10px;      
+  border: 1px solid #ccc;      
+}      
+  
+.chat-input button {      
+  padding: 10px 20px;      
+  border: none;      
+  background: #27ae60;      
+  color: white;      
+  border-radius: 10px;      
+  cursor: pointer;      
+}      
+  
+.mentee-list {      
+  margin-top: 10px;      
+  text-align: left;      
+  padding-left: 20px;      
+}      
+  
+.mentee-list li::before {      
+  content: "🔰 ";      
+  margin-right: 6px;      
+}      
+  
+.message {      
+  text-align: center;      
+  margin-top: 15px;      
+  font-weight: bold;      
+  color: green;      
+}  
+  
+  </style>      
+</head>      
+<body> <h1>Connect with Mentors</h1>  <div class="mentor-list active" id="mentorList"></div>  <div class="mentor-profile" id="mentorProfile">      
+  <div class="profile-card">      
+    <img id="profilePic" src="" alt="Mentor Picture">      
+    <div class="profile-details" style="text-align: center;">      
+      <h2 id="mentorName"></h2>      
+      <p><strong>ID:</strong> <span id="mentorId"></span></p>      
+      <p><strong>Current Company:</strong> <span id="mentorCompany"></span></p>      
+      <p><strong>Past Company:</strong> <span id="pastCompany"></span></p>      
+      <p><strong>Current Position:</strong> <span id="currentPosition"></span></p>      
+      <p><strong>Mentored Before:</strong></p>      
+      <ul class="mentee-list" id="mentoredList"></ul>      
+    </div>      
+    <div style="text-align:center; margin-top:15px;">      
+      <button class="btn" onclick="requestMentor()">Request Mentorship</button>      
+    </div>      
+    <div class="message" id="reqMessage"></div>      
+  </div>      
+</div> <!-- Chat Section --> <div class="chat-section" id="chatSection">      
+  <h2>Chat with Mentor</h2>      
+  <div class="chat-box">      
+    <div class="chat-messages" id="chatMessages"></div>      
+    <div class="chat-input">      
+      <input type="text" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter') sendMessage()" />      
+      <button onclick="sendMessage()">Send</button>      
+    </div>      
+  </div>      
+</div> <script>      
+const mentors = [      
+  {      
+    name: 'Anjali Mehta',      
+    id: 'MTR2024A',      
+    currentCompany: 'Google',      
+    pastCompany: 'Zoho Corp',      
+    currentPosition: 'Senior Frontend Engineer',      
+    mentoredBefore: [      
+      { name: 'Riya Singh', badge: 'Web Dev Champion' },      
+      { name: 'Akash Patel', badge: 'Hackathon Finalist' },      
+      { name: 'Meena Iyer', badge: 'UI/UX Star' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/women/44.jpg'      
+  },      
+  {      
+    name: 'Rajeev Sharma',      
+    id: 'MTR2023R',      
+    currentCompany: 'Microsoft',      
+    pastCompany: 'TCS',      
+    currentPosition: 'Data Scientist',      
+    mentoredBefore: [      
+      { name: 'Nikhil Reddy', badge: 'ML Enthusiast' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/men/45.jpg'      
+  },      
+  {      
+    name: 'Sana Ali',      
+    id: 'MTR2022S',      
+    currentCompany: 'Amazon',      
+    pastCompany: 'Flipkart',      
+    currentPosition: 'Backend Developer',      
+    mentoredBefore: [      
+      { name: 'Deepa Rai', badge: 'Backend Pro' },      
+      { name: 'Ajay Sen', badge: 'AWS Star' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/women/48.jpg'      
+  },      
+  {      
+    name: 'Aman Verma',      
+    id: 'MTR2021V',      
+    currentCompany: 'Meta',      
+    pastCompany: 'Infosys',      
+    currentPosition: 'AI Engineer',      
+    mentoredBefore: [      
+      { name: 'Pranav Joshi', badge: 'AI Rookie' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/men/51.jpg'      
+  },      
+  {      
+    name: 'Neha Kapoor',      
+    id: 'MTR2020N',      
+    currentCompany: 'Adobe',      
+    pastCompany: 'Capgemini',      
+    currentPosition: 'UX Designer',      
+    mentoredBefore: [      
+      { name: 'Kriti Desai', badge: 'Design Maven' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/women/50.jpg'      
+  },      
+  {      
+    name: 'Vikas Malhotra',      
+    id: 'MTR2019V',      
+    currentCompany: 'IBM',      
+    pastCompany: 'CTS',      
+    currentPosition: 'Cloud Architect',      
+    mentoredBefore: [      
+      { name: 'Siddharth Jain', badge: 'Cloud Rookie' }      
+    ],      
+    photo: 'https://randomuser.me/api/portraits/men/60.jpg'      
+  }      
+];      
+      
+const mentorList = document.getElementById('mentorList');      
+const mentorProfile = document.getElementById('mentorProfile');      
+const chatSection = document.getElementById('chatSection');      
+let currentMentor = null;      
+      
+mentors.forEach((mentor, index) => {      
+  mentorList.innerHTML += `      
+    <div class="mentor-card">      
+      <img src="${mentor.photo}" alt="Mentor Pic">      
+      <div class="mentor-info">      
+        <h3>${mentor.name}</h3>      
+        <p>Currently at: ${mentor.currentCompany}</p>      
+        <p>Position: ${mentor.currentPosition}</p>      
+        <button class="btn" onclick="viewProfile(${index})">View Profile</button>      
+      </div>      
+    </div>      
+  `;      
+});      
+      
+function viewProfile(index) {      
+  const m = mentors[index];      
+  currentMentor = m;      
+  document.getElementById('profilePic').src = m.photo;      
+  document.getElementById('mentorName').innerText = m.name;      
+  document.getElementById('mentorId').innerText = m.id;      
+  document.getElementById('mentorCompany').innerText = m.currentCompany;      
+  document.getElementById('pastCompany').innerText = m.pastCompany;      
+  document.getElementById('currentPosition').innerText = m.currentPosition;      
+      
+  const list = document.getElementById('mentoredList');      
+  list.innerHTML = '';      
+  m.mentoredBefore.forEach(mentee => {      
+    list.innerHTML += `<li>${mentee.name} — <em>${mentee.badge}</em></li>`;      
+  });      
+      
+  mentorList.classList.remove('active');      
+  chatSection.classList.remove('active');      
+  mentorProfile.classList.add('active');      
+}      
+      
+function requestMentor() {      
+  document.getElementById('reqMessage').innerText = "Requested Successfully!";      
+  setTimeout(() => {      
+    mentorProfile.classList.remove('active');      
+    chatSection.classList.add('active');      
+    document.getElementById('chatMessages').innerHTML = `      
+      <div class="chat-message mentor">      
+        <img src="${currentMentor.photo}" alt="Mentor">      
+        <div class="chat-bubble">Hi! I'm ${currentMentor.name}. How can I help you today?</div>      
+      </div>`;      
+  }, 1200);      
+}      
+      
+function sendMessage() {      
+  const input = document.getElementById('chatInput');      
+  const msg = input.value.trim();      
+  if (msg === "") return;      
+  const userMsg = `      
+    <div class="chat-message you">      
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="You">      
+      <div class="chat-bubble">${msg}</div>      
+    </div>`;      
+  document.getElementById('chatMessages').innerHTML += userMsg;      
+  input.value = "";      
+      
+  setTimeout(() => {      
+    let reply = "Thanks for sharing! Could you tell me more about your project?";      
+    if (msg.toLowerCase().includes("project")) {      
+      reply = "Sure! What area is your project in? Web, AI, Data Science, etc?";      
+    } else if (msg.toLowerCase().includes("help")) {      
+      reply = "I'd be happy to help. What's the issue you're facing?";      
+    }      
+    const mentorReply = `      
+      <div class="chat-message mentor">      
+        <img src="${currentMentor.photo}" alt="Mentor">      
+        <div class="chat-bubble">${reply}</div>      
+      </div>`;      
+    document.getElementById('chatMessages').innerHTML += mentorReply;      
+    document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;      
+  }, 1000);      
+}      
+</script> </body>      
+</html>

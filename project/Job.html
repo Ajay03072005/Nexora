@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Board</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f4f7fa; padding: 40px; }
+
+    h1 { text-align: center; color: #1f3c88; margin-bottom: 20px; }
+
+    .job-board, .application-form {
+      max-width: 800px;
+      margin: auto;
+      display: none;
+    }
+
+    .job-board.active, .application-form.active {
+      display: block;
+    }
+
+    .job-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .job-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .company { color: #555; margin: 5px 0; }
+    .tag { display: inline-block; background: #dfe6f3; padding: 5px 10px; margin-right: 5px; border-radius: 20px; font-size: 0.8rem; }
+
+    .apply-btn {
+      margin-top: 10px;
+      background: #1f3c88;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .form-field {
+      margin: 15px 0;
+    }
+
+    .form-field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-btn {
+      background: #2ecc71;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Job & Internship Opportunities</h1>
+
+  <div class="job-board active" id="jobBoard"></div>
+
+  <div class="application-form" id="applicationForm">
+    <h2 id="applyHeading"></h2>
+    <div class="form-field">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <div class="form-field">
+      <label for="resume">Upload Resume (PDF or DOC)</label>
+      <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+    </div>
+    <div class="form-field">
+      <label for="cover">Cover Letter / Additional Information (Optional)</label>
+      <textarea id="cover" rows="4" placeholder="Add any notes or message..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitApplication()">Submit Application</button>
+    <div class="message" id="formMessage"></div>
+  </div>
+
+  <script>
+    const jobs = [
+      { title: 'Frontend Developer Intern', company: 'Google', tags: ['React', 'HTML', 'CSS'] },
+      { title: 'Software Engineer', company: 'Microsoft', tags: ['.NET', 'C#', 'Azure'] },
+      { title: 'Data Analyst Intern', company: 'Accenture', tags: ['Python', 'SQL', 'Power BI'] },
+      { title: 'Android Developer Intern', company: 'Flipkart', tags: ['Kotlin', 'Java', 'Android Studio'] },
+      { title: 'Web Development Intern', company: 'Infosys', tags: ['HTML', 'CSS', 'JavaScript'] },
+      { title: 'ML Intern', company: 'Amazon', tags: ['Machine Learning', 'Python', 'AWS'] }
+    ];
+
+    const jobBoard = document.getElementById('jobBoard');
+    const applicationForm = document.getElementById('applicationForm');
+    const applyHeading = document.getElementById('applyHeading');
+    const formMessage = document.getElementById('formMessage');
+
+    jobs.forEach((job, index) => {
+      jobBoard.innerHTML += `
+        <div class="job-card">
+          <div class="job-title">${job.title}</div>
+          <div class="company">${job.company}</div>
+          <div>${job.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</div>
+          <button class="apply-btn" onclick="openForm('${job.title}')">Apply Now</button>
+        </div>
+      `;
+    });
+
+    function openForm(title) {
+      jobBoard.classList.remove('active');
+      applicationForm.classList.add('active');
+      applyHeading.innerText = `Apply for: ${title}`;
+    }
+
+    function submitApplication() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const resume = document.getElementById('resume').value;
+
+      if (!name || !email || !resume) {
+        formMessage.innerText = "Please fill out all required fields.";
+        formMessage.style.color = 'red';
+        return;
+      }
+
+      formMessage.style.color = 'green';
+      formMessage.innerText = "Form submitted successfully! You will get the other details soon.";
+
+      setTimeout(() => {
+        formMessage.innerText = "";
+        applicationForm.classList.remove('active');
+        jobBoard.classList.add('active');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
