@@ -1,55 +1,42 @@
-# 🌐 Nexora: Alumni Network Platform
+# 🌐 NEXORA: Alumni Network Platform
 
-**Nexora** is a smart and dynamic Alumni Management System built to bridge the gap between students and alumni using algorithmic optimization, intelligent data mapping, and modern web technologies.
-
-> 🚀 Project Goal: Create an efficient, scalable, and intelligent alumni portal to foster networking, mentorship, career opportunities, and community building among alumni and current students.
+**NEXORA** is a Java-based intelligent alumni management system designed to connect students and alumni efficiently. It empowers institutions to maintain alumni relationships, foster mentorship, and showcase career growth using smart data handling and search features.
 
 ---
 
-## 🛠️ Features
+## 📌 Key Features
 
-- ✅ **User Registration & Login**  
-  Secure authentication for Alumni, Students, and Admins.
+- 🔐 **User Login System**
+  - Separate access for Students, Alumni, and Admin using secure login.
 
-- 🧠 **Dynamic Matching Algorithm**  
-  Matches students with alumni based on interests, department, skills, and career paths.
+- 👤 **Alumni Profiles**
+  - Alumni can update their education, job title, skills, social links, and projects.
 
-- 📊 **Admin Dashboard**  
-  View statistics, approve alumni/student requests, and manage users.
+- 🎓 **Student View**
+  - Students can browse and search alumni to seek career guidance or mentorship.
 
-- 📁 **Alumni Profiles**  
-  Detailed profiles with education, current position, social links, and expertise.
+- 🛡️ **Admin Panel**
+  - Admins can manage users, approve profiles, and view student-alumni interactions.
 
-- 📨 **Message & Connect System**  
-  Allow students to connect with alumni for mentorship or guidance.
+- 📁 **Resume Upload & Project Section**
+  - Upload resumes and add project details to showcase experience.
 
-- 📄 **Resume Upload & Project Showcase**  
-  Alumni and students can upload resumes and showcase projects.
-
----
-
-## ⚙️ Tech Stack
-
-| Layer        | Technology Used                |
-|--------------|-------------------------------|
-| Frontend     | HTML, CSS, JavaScript          |
-| Backend      | PHP                            |
-| Database     | MySQL                          |
-| Deployment   | GitHub Pages / Localhost       |
-| Version Ctrl | Git & GitHub                   |
+- 🔍 **Search & Filter**
+  - Filter alumni by department, graduation year, job role, and skills.
 
 ---
 
-## 🧪 Project Structure
+## 🛠️ Tech Stack
 
-```bash
-Nexora/
-├── assets/                 # Images, Icons, and Other Assets
-├── css/                    # Custom stylesheets
-├── js/                     # JavaScript files for interactivity
-├── php/                    # Backend PHP logic
-├── sql/                    # Database scripts
-├── index.html              # Landing page
-├── login.html              # Login/Signup interface
-├── dashboard.html          # Admin/Alumni Dashboard
-└── README.md               # Project documentation
+| Layer        | Technology Used              |
+|--------------|------------------------------|
+| Frontend     | HTML, CSS, JavaScript        |
+| Backend      | Java (Servlets, JDBC)        |
+| Database     | MySQL                        |
+| Hosting      | Localhost (Apache Tomcat)    |
+| Tools        | VS Code / Eclipse, XAMPP     |
+| Version Ctrl | Git & GitHub                 |
+
+---
+
+
