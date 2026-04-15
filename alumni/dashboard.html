@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/alumni.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="requests.html" class="nav-link">Requests</a></li>
+                <li><a href="schedules.html" class="nav-link">Schedules</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs & Opportunities</a></li>
+                <li><a href="network.html" class="nav-link">Network</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">👨‍💼 Alumni</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome Back, Dr. Rajesh! 👋</h1>
+            <p>Empower the next generation of leaders</p>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="page-section">
+        <div class="alumni-stats-grid">
+            <div class="alumni-stat-card">
+                <div class="alumni-stat-number">3</div>
+                <div class="alumni-stat-label">New Requests</div>
+            </div>
+            <div class="alumni-stat-card">
+                <div class="alumni-stat-number">5</div>
+                <div class="alumni-stat-label">Active Mentees</div>
+            </div>
+            <div class="alumni-stat-card">
+                <div class="alumni-stat-number">45 hrs</div>
+                <div class="alumni-stat-label">Total Hours Mentored</div>
+            </div>
+            <div class="alumni-stat-card">
+                <div class="alumni-stat-number">4.9 ⭐</div>
+                <div class="alumni-stat-label">Average Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pending Session Requests -->
+    <section class="page-section">
+        <h2>Pending Session Requests (3)</h2>
+        <div class="requests-detailed-grid">
+            <div class="request-card-detailed">
+                <div class="request-status-badge">
+                    <span class="badge pending">Pending</span>
+                </div>
+                <h3>Priya Kumar (Batch 2024)</h3>
+                <div class="request-details-full">
+                    <p><strong>📧 Email:</strong> priya.kumar@college.edu</p>
+                    <p><strong>📱 Phone:</strong> +91-9876543210</p>
+                    <p><strong>🎓 Program:</strong> B.Tech Computer Science</p>
+                    <p><strong>📚 Request Topic:</strong> Machine Learning Projects & Career Path</p>
+                    <p><strong>💬 Message:</strong> I'm interested in learning about ML projects and exploring career opportunities in AI/ML.</p>
+                </div>
+                <div class="request-actions">
+                    <button class="btn-primary">Accept Request</button>
+                    <button class="btn-secondary">Decline Request</button>
+                </div>
+            </div>
+
+            <div class="request-card-detailed">
+                <div class="request-status-badge">
+                    <span class="badge pending">Pending</span>
+                </div>
+                <h3>Amit Singh (Batch 2024)</h3>
+                <div class="request-details-full">
+                    <p><strong>📧 Email:</strong> amit.singh@college.edu</p>
+                    <p><strong>📱 Phone:</strong> +91-9876543211</p>
+                    <p><strong>🎓 Program:</strong> B.Tech IT</p>
+                    <p><strong>📚 Request Topic:</strong> Software Engineering Best Practices</p>
+                    <p><strong>💬 Message:</strong> I'm eager to learn about industry best practices in software development.</p>
+                </div>
+                <div class="request-actions">
+                    <button class="btn-primary">Accept Request</button>
+                    <button class="btn-secondary">Decline Request</button>
+                </div>
+            </div>
+
+            <div class="request-card-detailed">
+                <div class="request-status-badge">
+                    <span class="badge pending">Pending</span>
+                </div>
+                <h3>Neha Patel (Batch 2024)</h3>
+                <div class="request-details-full">
+                    <p><strong>📧 Email:</strong> neha.patel@college.edu</p>
+                    <p><strong>🎓 Program:</strong> B.Tech ECE</p>
+                    <p><strong>📚 Request Topic:</strong> Career Growth Strategy</p>
+                    <p><strong>💬 Message:</strong> I need guidance on career planning and interview preparation.</p>
+                </div>
+                <div class="request-actions">
+                    <button class="btn-primary">Accept Request</button>
+                    <button class="btn-secondary">Decline Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Upcoming Sessions -->
+    <section class="page-section">
+        <h2>Your Upcoming Sessions (2)</h2>
+        <div class="sessions-history">
+            <div class="history-item">
+                <p><strong>📅 22 Apr 2026, 6:00 PM</strong></p>
+                <p><strong>Student:</strong> Priya Kumar (Batch 2024)</p>
+                <p><strong>Topic:</strong> Machine Learning Projects & Career Path</p>
+                <p><strong>Mode:</strong> Zoom Video Call</p>
+                <div style="margin-top: 0.75rem;">
+                    <button class="btn-outline-small">View Details</button>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <p><strong>📅 26 Apr 2026, 5:30 PM</strong></p>
+                <p><strong>Student:</strong> Vikram Singh (Batch 2023)</p>
+                <p><strong>Topic:</strong> Software Engineering Best Practices - Session 2</p>
+                <p><strong>Mode:</strong> Zoom Video Call</p>
+                <div style="margin-top: 0.75rem;">
+                    <button class="btn-outline-small">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Impact -->
+    <section class="page-section">
+        <h2>Your Impact 🌟</h2>
+        <div class="alumni-stats-grid">
+            <div class="alumni-stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <div class="alumni-stat-number">58</div>
+                <div class="alumni-stat-label">Students Mentored</div>
+            </div>
+            <div class="alumni-stat-card" style="background: linear-gradient(135deg, #ed8936 0%, #f6ad55 100%);">
+                <div class="alumni-stat-number">15</div>
+                <div class="alumni-stat-label">Job Placements</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/alumni-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

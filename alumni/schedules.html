@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Schedule - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/alumni.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="requests.html" class="nav-link">Requests</a></li>
+                <li><a href="schedules.html" class="nav-link active">Schedules</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+                <li><a href="network.html" class="nav-link">Network</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🎓 Alumni</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Schedule 📋</h1>
+            <p>Manage and track your mentoring sessions</p>
+        </div>
+    </section>
+
+    <!-- Calendar View -->
+    <section class="page-section">
+        <h2>This Week (Apr 21-27, 2026)</h2>
+        <div class="calendar-schedule">
+            <div class="calendar-day">
+                <div class="calendar-day-header">Mon 21</div>
+                <div class="calendar-day-content">
+                    <p style="text-align: center; color: #999; font-size: 0.875rem;">No sessions</p>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Tue 22</div>
+                <div class="calendar-day-content">
+                    <div style="padding: 0.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 4px; font-size: 0.8rem;">
+                        <div style="font-weight: 600;">2:00 PM</div>
+                        <div>Priya Kumar</div>
+                        <div style="opacity: 0.8;">ML Fundamentals</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Wed 23</div>
+                <div class="calendar-day-content">
+                    <p style="text-align: center; color: #999; font-size: 0.875rem;">No sessions</p>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Thu 24</div>
+                <div class="calendar-day-content">
+                    <div style="padding: 0.5rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 0.25rem;">
+                        <div style="font-weight: 600;">3:00 PM</div>
+                        <div>Vikram Singh</div>
+                        <div style="opacity: 0.8;">Interview Prep</div>
+                    </div>
+                    <div style="padding: 0.5rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border-radius: 4px; font-size: 0.8rem;">
+                        <div style="font-weight: 600;">6:00 PM</div>
+                        <div>Priyank Verma</div>
+                        <div style="opacity: 0.8;">React Sessions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Fri 25</div>
+                <div class="calendar-day-content">
+                    <p style="text-align: center; color: #999; font-size: 0.875rem;">No sessions</p>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Sat 26</div>
+                <div class="calendar-day-content">
+                    <p style="text-align: center; color: #999; font-size: 0.875rem;">No sessions</p>
+                </div>
+            </div>
+
+            <div class="calendar-day">
+                <div class="calendar-day-header">Sun 27</div>
+                <div class="calendar-day-content">
+                    <div style="padding: 0.5rem; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; border-radius: 4px; font-size: 0.8rem;">
+                        <div style="font-weight: 600;">4:00 PM</div>
+                        <div>Priya Kumar</div>
+                        <div style="opacity: 0.8;">ML Project Review</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Sessions -->
+    <section class="page-section">
+        <h2>Next 7 Days</h2>
+        <div style="display: grid; gap: 1.5rem;">
+            <div class="schedule-item">
+                <div class="schedule-time">2:00 PM</div>
+                <div class="schedule-details">
+                    <h4 style="margin: 0 0 0.5rem 0;">Machine Learning Fundamentals - Session 1</h4>
+                    <p style="margin: 0; color: #666;">Student: Priya Kumar | Duration: 1 hour</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">Tue, 22 Apr 2026</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Call</button>
+                    <button class="btn-outline-small">Reschedule</button>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">3:00 PM</div>
+                <div class="schedule-details">
+                    <h4 style="margin: 0 0 0.5rem 0;">Interview Preparation - Session 2</h4>
+                    <p style="margin: 0; color: #666;">Student: Vikram Singh | Duration: 1 hour</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">Thu, 24 Apr 2026</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Call</button>
+                    <button class="btn-outline-small">Reschedule</button>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">6:00 PM</div>
+                <div class="schedule-details">
+                    <h4 style="margin: 0 0 0.5rem 0;">React Advanced Patterns - Session 3</h4>
+                    <p style="margin: 0; color: #666;">Student: Priyank Verma | Duration: 1.5 hours</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">Thu, 24 Apr 2026</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Call</button>
+                    <button class="btn-outline-small">Reschedule</button>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">4:00 PM</div>
+                <div class="schedule-details">
+                    <h4 style="margin: 0 0 0.5rem 0;">ML Project Review - Session 2</h4>
+                    <p style="margin: 0; color: #666;">Student: Priya Kumar | Duration: 1 hour</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">Sun, 27 Apr 2026</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join Call</button>
+                    <button class="btn-outline-small">Reschedule</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Session History -->
+    <section class="page-section">
+        <h2>Session History (Past 30 Days)</h2>
+        <div style="display: grid; gap: 1rem;">
+            <div class="history-item">
+                <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                    <div style="font-size: 2rem;">✅</div>
+                    <div>
+                        <h4 style="margin: 0;">Machine Learning Fundamentals - Session</h4>
+                        <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Priya Kumar • Completed on 20 Apr 2026</p>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <p style="margin: 0; font-weight: 600; color: #10b981;">Completed</p>
+                    <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Rating: 5.0 ⭐</p>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                    <div style="font-size: 2rem;">✅</div>
+                    <div>
+                        <h4 style="margin: 0;">Interview Preparation - Session 1</h4>
+                        <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Vikram Singh • Completed on 18 Apr 2026</p>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <p style="margin: 0; font-weight: 600; color: #10b981;">Completed</p>
+                    <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Rating: 4.8 ⭐</p>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                    <div style="font-size: 2rem;">✅</div>
+                    <div>
+                        <h4 style="margin: 0;">React Advanced Patterns - Session 2</h4>
+                        <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Priyank Verma • Completed on 17 Apr 2026</p>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <p style="margin: 0; font-weight: 600; color: #10b981;">Completed</p>
+                    <p style="margin: 0.25rem 0; color: #666; font-size: 0.875rem;">Rating: 4.9 ⭐</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/alumni-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

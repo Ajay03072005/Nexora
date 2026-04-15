@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="jobs.html" class="nav-link active">Jobs</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="directory.html" class="nav-link">Directory</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">👨‍🎓 Student</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Job Opportunities 💼</h1>
+            <p>Explore internships and job positions from leading companies</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <input type="text" placeholder="Search jobs..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Locations</option>
+                <option>Bangalore</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Remote</option>
+            </select>
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Types</option>
+                <option>Full-time</option>
+                <option>Internship</option>
+                <option>Contract</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="page-section">
+        <h2>Featured Jobs (12)</h2>
+        <div class="featured-jobs-grid">
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>Senior Software Engineer</h3>
+                    <span class="job-salary">₹15-20 LPA</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">Google India</span>
+                    <span class="job-location">Bangalore</span>
+                </div>
+                <p class="job-description">Build scalable backend systems with Go and Kubernetes. 4+ years experience required.</p>
+                <div class="job-tags">
+                    <span class="tag">Go</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Full-time</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 2 days ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>Product Manager</h3>
+                    <span class="job-salary">₹12-18 LPA</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">InnovateLabs</span>
+                    <span class="job-location">Mumbai</span>
+                </div>
+                <p class="job-description">Lead product strategy for our flagship SaaS platform. Managing a team of 3+ engineers.</p>
+                <div class="job-tags">
+                    <span class="tag">Product Strategy</span>
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Full-time</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 1 day ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>Data Scientist Internship</h3>
+                    <span class="job-salary">₹50K/month</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">StartupHub Analytics</span>
+                    <span class="job-location">Bangalore</span>
+                </div>
+                <p class="job-description">Work on machine learning models for predictive analytics. 6-month internship program.</p>
+                <div class="job-tags">
+                    <span class="tag">ML</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Internship</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 5 hours ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>Frontend Engineer</h3>
+                    <span class="job-salary">₹8-12 LPA</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">CreativeStudio</span>
+                    <span class="job-location">Remote</span>
+                </div>
+                <p class="job-description">Build beautiful UIs with React and TypeScript. Creative design-driven startup.</p>
+                <div class="job-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Full-time</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 3 days ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>DevOps Engineer</h3>
+                    <span class="job-salary">₹14-16 LPA</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">TechCorp</span>
+                    <span class="job-location">Delhi</span>
+                </div>
+                <p class="job-description">Manage cloud infrastructure on AWS. Build CI/CD pipelines for enterprise applications.</p>
+                <div class="job-tags">
+                    <span class="tag">AWS</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Full-time</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 1 week ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <h3>Java Developer Intern</h3>
+                    <span class="job-salary">₹35K/month</span>
+                </div>
+                <div class="company-info">
+                    <span class="company-name">EnterpriseSoft</span>
+                    <span class="job-location">Bangalore</span>
+                </div>
+                <p class="job-description">Learn enterprise Java development. Work on microservices with Spring Boot.</p>
+                <div class="job-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Internship</span>
+                </div>
+                <div class="job-footer">
+                    <span class="posted-date">Posted 2 days ago</span>
+                    <button class="btn-primary">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applied Jobs -->
+    <section class="page-section">
+        <h2>Your Applications</h2>
+        <div class="applications-list">
+            <div class="application-item">
+                <div class="application-header">
+                    <h3>Senior Software Engineer</h3>
+                    <span class="status pending">Pending</span>
+                </div>
+                <p class="company-info-text">Google India • Bangalore</p>
+                <p class="applied-date">Applied on 20 Apr 2026</p>
+            </div>
+
+            <div class="application-item">
+                <div class="application-header">
+                    <h3>Frontend Engineer</h3>
+                    <span class="status confirmed">Interview Scheduled</span>
+                </div>
+                <p class="company-info-text">CreativeStudio • Remote</p>
+                <p class="applied-date">Interview on 25 Apr 2026, 3:00 PM</p>
+            </div>
+
+            <div class="application-item">
+                <div class="application-header">
+                    <h3>Data Scientist Internship</h3>
+                    <span class="status rejected">Rejected</span>
+                </div>
+                <p class="company-info-text">StartupHub Analytics • Bangalore</p>
+                <p class="applied-date">Applied on 15 Apr 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

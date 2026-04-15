@@ -1,0 +1,1363 @@
+/* ============================================
+   AlumniHub - Main Styles (Green & Yellow Theme)
+   ============================================ */
+
+:root {
+    --primary-color: #2d7e3d;
+    --primary-dark: #1f5a2b;
+    --secondary-color: #f4c430;
+    --success-color: #27ae60;
+    --warning-color: #e8a11e;
+    --danger-color: #e74c3c;
+    --dark-color: #1a1a1a;
+    --light-color: #f5f5f5;
+    --border-color: #ddd;
+    --text-color: #2d3748;
+    --text-light: #666;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
+h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+h5 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+h6 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; }
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+.navbar {
+    background: white;
+    padding: 1rem 0;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 800;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-role {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-outline-small {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-small:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    background: var(--primary-color);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.page-section {
+    max-width: 1400px;
+    margin: 0 auto 2rem;
+    padding: 2rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   GRIDS & CARDS
+   ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.analytics-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.analytics-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.analytics-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.analytics-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(45, 126, 61, 0.1);
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.upcoming {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status.rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ============================================
+   MODALS
+   ============================================ */
+.modal-large {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.modal-content-large {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+/* ============================================
+   HOMEPAGE SECTIONS
+   ============================================ */
+.features {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.features h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--secondary-color);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Jobs Section */
+.jobs-section {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.jobs-section h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.jobs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.job-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--secondary-color);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.job-header h3 {
+    color: var(--primary-color);
+    margin: 0;
+    flex: 1;
+}
+
+.job-salary {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.company {
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.location {
+    color: var(--text-light);
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+}
+
+.tag {
+    background: var(--secondary-color);
+    color: #1a1a1a;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.job-desc {
+    color: var(--text-light);
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Directory Section */
+.directory-section {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.directory-section h2 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.directory-search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.directory-search input {
+    flex: 1;
+    max-width: 500px;
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.alumni-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.alumni-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.alumni-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.alumni-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.alumni-batch {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0.25rem 0;
+}
+
+.alumni-field {
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.btn-profile {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-profile:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Mentorship Section */
+.mentorship-section {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.mentorship-section h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.mentorship-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.mentor-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-top: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.mentor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mentor-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 3px solid var(--primary-color);
+}
+
+.mentor-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.35rem;
+}
+
+.mentor-expertise {
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.mentor-company {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.mentor-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background: var(--secondary-color);
+    color: #1a1a1a;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.availability-schedule {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.availability {
+    color: var(--success-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.schedule-info {
+    color: var(--text-light);
+    margin: 0.35rem 0;
+    font-size: 0.85rem;
+}
+
+.session-rate {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0.35rem 0;
+}
+
+.btn-book-session {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-book-session:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Student Sessions Section */
+.student-sessions {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.student-sessions h2 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.sessions-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: #f0f0f0;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.sessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.session-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.session-status {
+    display: inline-block;
+    background: var(--warning-color);
+    color: #1a1a1a;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.session-status.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.session-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.session-topic,
+.session-date,
+.session-duration {
+    color: var(--text-light);
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.session-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.session-actions button {
+    flex: 1;
+}
+
+.btn-cancel {
+    background: #f0f0f0;
+    color: var(--text-color);
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+.feedback-display {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.rating {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.feedback-text {
+    color: var(--text-light);
+    margin: 0.35rem 0;
+    font-style: italic;
+}
+
+.marks-display {
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0.35rem 0;
+}
+
+/* Feedback & Marks Section */
+.feedback-marks-section {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 3rem 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.feedback-marks-section h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feedback-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.feedback-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.feedback-header h3 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.feedback-header .date {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.mentor-info p {
+    color: var(--text-color);
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.marks-section {
+    margin: 1.5rem 0;
+}
+
+.mark-item {
+    margin-bottom: 1rem;
+}
+
+.mark-label {
+    display: block;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.mark-bar {
+    height: 25px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mark-value {
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 12px;
+}
+
+.feedback-comments,
+.recommendations {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.feedback-comments h4,
+.recommendations h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.75rem 0;
+}
+
+.feedback-comments p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.recommendations ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.recommendations li {
+    margin-bottom: 0.35rem;
+}
+
+.btn-login, .btn-signup {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover, .btn-signup:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-login {
+    margin-right: 0.5rem;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--dark-color);
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    margin: 0;
+    color: #ccc;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .features-grid,
+    .jobs-container,
+    .mentorship-container,
+    .alumni-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .page-section {
+        padding: 1.5rem 15px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .features,
+    .jobs-section,
+    .directory-section,
+    .mentorship-section,
+    .student-sessions,
+    .feedback-marks-section {
+        padding: 2rem 15px !important;
+    }
+
+    .features-grid,
+    .jobs-container,
+    .alumni-grid,
+    .mentorship-container,
+    .sessions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-search {
+        flex-direction: column;
+    }
+
+    .directory-search input {
+        max-width: 100%;
+    }
+
+    .sessions-filter {
+        flex-wrap: wrap;
+    }
+
+    .analytics-table {
+        font-size: 0.85rem;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .mark-bar {
+        height: 20px;
+    }
+
+    .mark-value {
+        font-size: 0.7rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+
+    .job-header {
+        flex-direction: column;
+    }
+
+    .job-salary {
+        width: 100%;
+        text-align: left;
+    }
+
+    .session-actions {
+        flex-direction: column;
+    }
+
+    .session-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.35rem;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .btn-login, .btn-signup {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .page-section {
+        padding: 1rem 10px;
+    }
+
+    .features,
+    .jobs-section,
+    .directory-section,
+    .mentorship-section,
+    .student-sessions,
+    .feedback-marks-section {
+        padding: 1.5rem 10px !important;
+        margin: 0 auto 1rem;
+    }
+
+    .features-grid,
+    .jobs-container,
+    .alumni-grid,
+    .mentorship-container,
+    .sessions-grid,
+    .feedback-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .feature-card,
+    .job-card,
+    .alumni-card,
+    .mentor-card,
+    .session-card,
+    .feedback-card {
+        padding: 1rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    .mentor-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .mentor-skills {
+        gap: 0.35rem;
+    }
+
+    .skill-tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .job-header {
+        flex-direction: column;
+    }
+
+    .job-salary {
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    .analytics-table {
+        font-size: 0.75rem;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 0.5rem 0.35rem;
+    }
+
+    .feedback-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .mark-item {
+        margin-bottom: 0.75rem;
+    }
+
+    .mark-bar {
+        height: 18px;
+    }
+
+    .mark-value {
+        font-size: 0.65rem;
+    }
+
+    .sessions-filter {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+
+    .session-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .session-actions button {
+        width: 100%;
+    }
+
+    .mentor-expertise,
+    .mentor-company,
+    .schedule-info {
+        font-size: 0.8rem;
+    }
+
+    .recommendations ul {
+        padding-left: 1rem;
+        font-size: 0.85rem;
+    }
+}

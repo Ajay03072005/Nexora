@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="directory.html" class="nav-link">Alumni Directory</a></li>
+                <li><a href="sessions.html" class="nav-link">My Sessions</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">👨‍🎓 Student</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome Back, Priya! 👋</h1>
+            <p>Your personalized path to placement success</p>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="page-section">
+        <div class="quick-stats-grid">
+            <div class="quick-stat-card">
+                <div class="quick-stat-number">2</div>
+                <div class="quick-stat-label">Sessions This Month</div>
+            </div>
+            <div class="quick-stat-card">
+                <div class="quick-stat-number">4.8 ⭐</div>
+                <div class="quick-stat-label">Average Rating</div>
+            </div>
+            <div class="quick-stat-card">
+                <div class="quick-stat-number">12</div>
+                <div class="quick-stat-label">Job Applications</div>
+            </div>
+            <div class="quick-stat-card">
+                <div class="quick-stat-number">5</div>
+                <div class="quick-stat-label">Interview Calls</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessions Assigned Section -->
+    <section class="page-section">
+        <h2>Sessions Assigned to You by College</h2>
+        <div class="session-requests-grid">
+            <div class="request-card">
+                <div class="request-header">
+                    <div class="request-badge">👨‍💼 Dr. Rajesh Kumar</div>
+                    <h3>Machine Learning Projects & Career Path</h3>
+                </div>
+                <div class="request-body">
+                    <div class="student-info">
+                        <strong>💼 Senior Software Engineer at Google</strong>
+                        <span>📍 Batch 2010 | 15 years in tech</span>
+                    </div>
+                    <div class="request-topic">
+                        <strong>📚 Topic:</strong> ML fundamentals, project ideas, career opportunities
+                    </div>
+                    <div class="request-topic" style="background: #dbeafe; border-left-color: #0c4a6e;">
+                        <strong>📅 Next Session:</strong> 22 Apr 2026, 6:00 PM
+                        <br><strong>⏱️ Duration:</strong> 5 sessions (Session 1 of 5 completed)
+                    </div>
+                </div>
+            </div>
+
+            <div class="request-card">
+                <div class="request-header">
+                    <div class="request-badge">👩‍💼 Sarah Johnson</div>
+                    <h3>Product Management Fundamentals</h3>
+                </div>
+                <div class="request-body">
+                    <div class="student-info">
+                        <strong>🎯 Product Manager at InnovateLabs</strong>
+                        <span>📍 Batch 2019 | Innovation-focused</span>
+                    </div>
+                    <div class="request-topic">
+                        <strong>📚 Topic:</strong> Product strategy, user research, feature prioritization
+                    </div>
+                    <div class="request-topic" style="background: #dbeafe; border-left-color: #0c4a6e;">
+                        <strong>📅 Next Session:</strong> 25 Apr 2026, 4:00 PM
+                        <br><strong>⏱️ Duration:</strong> 3 sessions (Session 1 of 3)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs -->
+    <section class="page-section featured-jobs">
+        <h2>Featured Job Opportunities</h2>
+        <div class="featured-jobs-grid">
+            <div class="job-card-featured">
+                <h3>Senior Software Engineer</h3>
+                <p class="company-detail">TechCorp India</p>
+                <div class="job-details">
+                    <p><strong>📍 Location:</strong> Bangalore</p>
+                    <p><strong>💼 Experience:</strong> 3-5 years</p>
+                    <p><strong>💰 Salary:</strong> ₹18-25 LPA</p>
+                </div>
+                <p class="job-description">Building scalable cloud-based solutions...</p>
+                <button class="btn-primary">View & Apply</button>
+            </div>
+
+            <div class="job-card-featured">
+                <h3>Product Manager</h3>
+                <p class="company-detail">InnovateLabs</p>
+                <div class="job-details">
+                    <p><strong>📍 Location:</strong> Mumbai</p>
+                    <p><strong>💼 Experience:</strong> 2-4 years</p>
+                    <p><strong>💰 Salary:</strong> ₹15-20 LPA</p>
+                </div>
+                <p class="job-description">Lead consumer-focused initiatives...</p>
+                <button class="btn-primary">View & Apply</button>
+            </div>
+
+            <div class="job-card-featured">
+                <h3>Data Scientist</h3>
+                <p class="company-detail">DataInsights</p>
+                <div class="job-details">
+                    <p><strong>📍 Location:</strong> Hyderabad</p>
+                    <p><strong>💼 Experience:</strong> 2-3 years</p>
+                    <p><strong>💰 Salary:</strong> ₹16-22 LPA</p>
+                </div>
+                <p class="job-description">Build ML models for enterprise clients...</p>
+                <button class="btn-primary">View & Apply</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="page-section featured-events">
+        <h2>Upcoming Events</h2>
+        <div class="featured-events-grid">
+            <div class="event-card-featured">
+                <h3>📅 22 Apr - AI & ML Career Path Webinar</h3>
+                <p><strong>6:00 PM IST</strong> • Online (Zoom)</p>
+                <p>Learn about latest trends in AI/ML and career opportunities</p>
+                <button class="btn-primary">Register</button>
+            </div>
+
+            <div class="event-card-featured">
+                <h3>📅 25 Apr - Product Management Workshop</h3>
+                <p><strong>10:00 AM IST</strong> • AlumniHub Office, Bangalore</p>
+                <p>Hands-on workshop covering product strategy</p>
+                <button class="btn-primary">Register</button>
+            </div>
+
+            <div class="event-card-featured">
+                <h3>📅 28 Apr - Alumni Networking Brunch</h3>
+                <p><strong>11:00 AM IST</strong> • The Grand Hotel, Bangalore</p>
+                <p>Casual networking event with alumni from various industries</p>
+                <button class="btn-primary">Register</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="page-section featured-stories">
+        <h2>Alumni Success Stories 🌟</h2>
+        <div class="featured-stories-grid">
+            <div class="story-card">
+                <h3>From Fresher to Google Senior Engineer</h3>
+                <p class="company-detail">Dr. Rajesh Kumar (Batch 2010)</p>
+                <p>"The mentorship program transformed my career path. From my first job to being a Senior Engineer at Google, the guidance I received was invaluable."</p>
+                <button class="btn-outline-small">Read More</button>
+            </div>
+
+            <div class="story-card">
+                <h3>Building Products at Scale</h3>
+                <p class="company-detail">Sarah Johnson (Batch 2019)</p>
+                <p>"I learned product thinking from industry experts. Now leading product initiatives at InnovateLabs. The network has been incredible."</p>
+                <button class="btn-outline-small">Read More</button>
+            </div>
+
+            <div class="story-card">
+                <h3>Founding My Own Startup</h3>
+                <p class="company-detail">Vikas Singh (Batch 2020)</p>
+                <p>"The entrepreneurship mentorship helped me take the leap. StartupHub is now serving 50,000+ users and we're growing rapidly."</p>
+                <button class="btn-outline-small">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

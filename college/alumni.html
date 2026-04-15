@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/college.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="students.html" class="nav-link">Students</a></li>
+                <li><a href="alumni.html" class="nav-link active">Alumni</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+                <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🏫 College Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manage Alumni Mentors 👨‍🏫</h1>
+            <p>Monitor alumni participation and mentoring activity</p>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <input type="text" placeholder="Search alumni by name or company..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
+                <option>Pending</option>
+            </select>
+            <button class="btn-primary">+ Invite Alumni</button>
+        </div>
+    </section>
+
+    <!-- Alumni Status -->
+    <section class="page-section">
+        <div class="college-stats-grid">
+            <div class="college-stat-card">
+                <div class="college-stat-number">58</div>
+                <div class="college-stat-label">Total Alumni Mentors</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">43</div>
+                <div class="college-stat-label">Active Mentors</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">215</div>
+                <div class="college-stat-label">Students Mentored</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">4.8 ⭐</div>
+                <div class="college-stat-label">Avg Alumni Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Table -->
+    <section class="page-section">
+        <h2>Alumni Mentors (58)</h2>
+        <table class="analytics-table">
+            <thead>
+                <tr>
+                    <th>Alumni Name</th>
+                    <th>Batch</th>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Students Mentored</th>
+                    <th>Sessions Completed</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td>2018</td>
+                    <td>Google India</td>
+                    <td>Senior ML Engineer</td>
+                    <td>5</td>
+                    <td>12</td>
+                    <td>4.9 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Sarah Johnson</td>
+                    <td>2019</td>
+                    <td>InnovateLabs</td>
+                    <td>Product Manager</td>
+                    <td>3</td>
+                    <td>8</td>
+                    <td>4.8 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Vikas Singh</td>
+                    <td>2017</td>
+                    <td>StartupHub</td>
+                    <td>Founder & CEO</td>
+                    <td>8</td>
+                    <td>15</td>
+                    <td>5.0 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Priya Verma</td>
+                    <td>2020</td>
+                    <td>CreativeStudio</td>
+                    <td>Design Lead</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>4.7 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Anjali Desai</td>
+                    <td>2021</td>
+                    <td>McKinsey & Company</td>
+                    <td>Senior Consultant</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>4.9 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Rohan Patel</td>
+                    <td>2019</td>
+                    <td>Venture Capital Fund</td>
+                    <td>Investment Manager</td>
+                    <td>6</td>
+                    <td>11</td>
+                    <td>4.6 ⭐</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">View</button></td>
+                </tr>
+                <tr>
+                    <td>Rahul Sharma</td>
+                    <td>2016</td>
+                    <td>TechCorp</td>
+                    <td>Tech Lead</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td><span class="status pending">Inactive</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Reactivate</button></td>
+                </tr>
+                <tr>
+                    <td>Neha Gupta</td>
+                    <td>2022</td>
+                    <td>Microsoft India</td>
+                    <td>Senior Developer</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Approve</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/college-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

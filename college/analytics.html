@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/college.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="students.html" class="nav-link">Students</a></li>
+                <li><a href="alumni.html" class="nav-link">Alumni</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+                <li><a href="analytics.html" class="nav-link active">Analytics</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🏫 College Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Analytics & Reports 📊</h1>
+            <p>Program performance and placement metrics</p>
+        </div>
+    </section>
+
+    <!-- KPI Cards -->
+    <section class="page-section">
+        <h2>Key Performance Indicators</h2>
+        <div class="kpi-card">
+            <div style="text-align: center;">
+                <div class="kpi-number" style="color: #8b5cf6;">92%</div>
+                <div class="kpi-label">Placement Rate</div>
+            </div>
+            <div style="text-align: center;">
+                <div class="kpi-number" style="color: #ec4899;">156</div>
+                <div class="kpi-label">Sessions Completed</div>
+            </div>
+            <div style="text-align: center;">
+                <div class="kpi-number" style="color: #f59e0b;">58</div>
+                <div class="kpi-label">Active Alumni Mentors</div>
+            </div>
+            <div style="text-align: center;">
+                <div class="kpi-number" style="color: #06b6d4;">245</div>
+                <div class="kpi-label">Active Students</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="page-section">
+        <h2>Student Success Metrics</h2>
+        <div class="success-metrics-grid">
+            <div class="success-card">
+                <div class="metric-big" style="color: white;">
+                    ₹24<br><span style="font-size: 0.6em;">LPA</span>
+                </div>
+                <p>Average CTC Offered</p>
+            </div>
+            <div class="success-card">
+                <div class="metric-big" style="color: white;">
+                    225<br><span style="font-size: 0.6em;">Students</span>
+                </div>
+                <p>Successfully Placed</p>
+            </div>
+            <div class="success-card">
+                <div class="metric-big" style="color: white;">
+                    4.8<br><span style="font-size: 0.6em;">⭐</span>
+                </div>
+                <p>Average Session Rating</p>
+            </div>
+            <div class="success-card">
+                <div class="metric-big" style="color: white;">
+                    3.2<br><span style="font-size: 0.6em;">Months</span>
+                </div>
+                <p>Avg Time to First Job</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement by Year -->
+    <section class="page-section">
+        <h2>Placement Distribution by Batch</h2>
+        <table class="analytics-table">
+            <thead>
+                <tr>
+                    <th>Batch</th>
+                    <th>Total Students</th>
+                    <th>Placed</th>
+                    <th>Pending</th>
+                    <th>Placement %</th>
+                    <th>Avg CTC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024</td>
+                    <td>180</td>
+                    <td>165</td>
+                    <td>15</td>
+                    <td>
+                        <div style="background: #e5e7eb; height: 24px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #8b5cf6, #6366f1); width: 91%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">91%</div>
+                        </div>
+                    </td>
+                    <td>₹22 LPA</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>165</td>
+                    <td>162</td>
+                    <td>3</td>
+                    <td>
+                        <div style="background: #e5e7eb; height: 24px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #06b6d4, #0891b2); width: 98%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">98%</div>
+                        </div>
+                    </td>
+                    <td>₹25 LPA</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>150</td>
+                    <td>148</td>
+                    <td>2</td>
+                    <td>
+                        <div style="background: #e5e7eb; height: 24px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #10b981, #059669); width: 99%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">99%</div>
+                        </div>
+                    </td>
+                    <td>₹26 LPA</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>140</td>
+                    <td>140</td>
+                    <td>0</td>
+                    <td>
+                        <div style="background: #e5e7eb; height: 24px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #f59e0b, #d97706); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600;">100%</div>
+                        </div>
+                    </td>
+                    <td>₹28 LPA</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Industry Distribution -->
+    <section class="page-section">
+        <h2>Placement by Industry</h2>
+        <div class="industry-distribution">
+            <div class="industry-item">
+                <span class="industry-label">Technology</span>
+                <div class="bar-container">
+                    <div class="bar-fill" style="width: 55%; background: linear-gradient(90deg, #8b5cf6, #6366f1);">
+                    </div>
+                </div>
+                <span class="industry-count">165 students</span>
+            </div>
+            <div class="industry-item">
+                <span class="industry-label">Finance & Banking</span>
+                <div class="bar-container">
+                    <div class="bar-fill" style="width: 18%; background: linear-gradient(90deg, #f59e0b, #d97706);">
+                    </div>
+                </div>
+                <span class="industry-count">54 students</span>
+            </div>
+            <div class="industry-item">
+                <span class="industry-label">Consulting</span>
+                <div class="bar-container">
+                    <div class="bar-fill" style="width: 15%; background: linear-gradient(90deg, #06b6d4, #0891b2);">
+                    </div>
+                </div>
+                <span class="industry-count">45 students</span>
+            </div>
+            <div class="industry-item">
+                <span class="industry-label">Startup</span>
+                <div class="bar-container">
+                    <div class="bar-fill" style="width: 8%; background: linear-gradient(90deg, #ec4899, #db2777);">
+                    </div>
+                </div>
+                <span class="industry-count">24 students</span>
+            </div>
+            <div class="industry-item">
+                <span class="industry-label">Others</span>
+                <div class="bar-container">
+                    <div class="bar-fill" style="width: 4%; background: linear-gradient(90deg, #10b981, #059669);">
+                    </div>
+                </div>
+                <span class="industry-count">12 students</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Metrics -->
+    <section class="page-section">
+        <h2>Program Quality Metrics</h2>
+        <div class="quality-metrics-grid">
+            <div class="metric-card">
+                <div style="border-top: 4px solid #8b5cf6;"></div>
+                <div class="metric-big">4.8</div>
+                <div style="font-size: 0.875rem; color: #666;">⭐ Average Session Rating</div>
+            </div>
+            <div class="metric-card">
+                <div style="border-top: 4px solid #f59e0b;"></div>
+                <div class="metric-big">95%</div>
+                <div style="font-size: 0.875rem; color: #666;">Student Satisfaction</div>
+            </div>
+            <div class="metric-card">
+                <div style="border-top: 4px solid #06b6d4;"></div>
+                <div class="metric-big">3.2</div>
+                <div style="font-size: 0.875rem; color: #666;">Avg Months to Placement</div>
+            </div>
+            <div class="metric-card">
+                <div style="border-top: 4px solid #ec4899;"></div>
+                <div class="metric-big">92%</div>
+                <div style="font-size: 0.875rem; color: #666;">Overall Placement Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section class="page-section">
+        <h2>Generate Reports</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div style="border: 1px solid #ddd; padding: 2rem; border-radius: 8px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">📄</div>
+                <h3>Monthly Report</h3>
+                <p style="color: #666; font-size: 0.875rem;">Session statistics and placement updates</p>
+                <button class="btn-primary" style="margin-top: 1rem; width: 100%;">Generate</button>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 2rem; border-radius: 8px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+                <h3>Quarter Report</h3>
+                <p style="color: #666; font-size: 0.875rem;">Quarterly performance metrics and trends</p>
+                <button class="btn-primary" style="margin-top: 1rem; width: 100%;">Generate</button>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 2rem; border-radius: 8px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">📈</div>
+                <h3>Annual Report</h3>
+                <p style="color: #666; font-size: 0.875rem;">Year-over-year analysis and insights</p>
+                <button class="btn-primary" style="margin-top: 1rem; width: 100%;">Generate</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/college-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

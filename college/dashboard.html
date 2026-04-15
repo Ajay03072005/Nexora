@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/college.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="students.html" class="nav-link">Students</a></li>
+                <li><a href="alumni.html" class="nav-link">Alumni</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+                <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🏫 College Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>College Admin Dashboard 🎓</h1>
+            <p>Manage mentorship programs and student placements</p>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="page-section">
+        <div class="college-stats-grid">
+            <div class="college-stat-card">
+                <div class="college-stat-number">245</div>
+                <div class="college-stat-label">Active Students</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">58</div>
+                <div class="college-stat-label">Alumni Mentors</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">156</div>
+                <div class="college-stat-label">Sessions Completed</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">92%</div>
+                <div class="college-stat-label">Placement Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="page-section">
+        <h2>Quick Actions</h2>
+        <button class="btn-primary" onclick="openAssignModal()">+ Assign One-on-One Sessions</button>
+    </section>
+
+    <!-- Active Assignments -->
+    <section class="page-section">
+        <h2>Active Assignments (8)</h2>
+        <div class="active-assignments-grid">
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <h3>Priya Kumar → Dr. Rajesh Kumar</h3>
+                    <span class="assignment-status">Active</span>
+                </div>
+                <div class="assignment-details">
+                    <p><strong>Topic:</strong> Machine Learning Projects & Career Path</p>
+                    <p><strong>Sessions:</strong> 5 total</p>
+                    <p><strong>Assigned on:</strong> 15 Apr 2026</p>
+                </div>
+                <div class="assignment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>2 / 5</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <div class="assignment-actions">
+                    <button class="btn-outline-small">View</button>
+                    <button class="btn-outline-small">Edit</button>
+                    <button class="btn-outline-small">End</button>
+                </div>
+            </div>
+
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <h3>Amit Singh → Rahul Sharma</h3>
+                    <span class="assignment-status">Active</span>
+                </div>
+                <div class="assignment-details">
+                    <p><strong>Topic:</strong> Software Engineering Best Practices</p>
+                    <p><strong>Sessions:</strong> 5 total</p>
+                    <p><strong>Assigned on:</strong> 18 Apr 2026</p>
+                </div>
+                <div class="assignment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>1 / 5</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%;"></div>
+                    </div>
+                </div>
+                <div class="assignment-actions">
+                    <button class="btn-outline-small">View</button>
+                    <button class="btn-outline-small">Edit</button>
+                    <button class="btn-outline-small">End</button>
+                </div>
+            </div>
+
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <h3>Neha Patel → Anjali Desai</h3>
+                    <span class="assignment-status">Active</span>
+                </div>
+                <div class="assignment-details">
+                    <p><strong>Topic:</strong> Career Growth Strategy</p>
+                    <p><strong>Sessions:</strong> 8 total</p>
+                    <p><strong>Assigned on:</strong> 12 Apr 2026</p>
+                </div>
+                <div class="assignment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>0 / 8</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="assignment-actions">
+                    <button class="btn-outline-small">View</button>
+                    <button class="btn-outline-small">Edit</button>
+                    <button class="btn-outline-small">End</button>
+                </div>
+            </div>
+
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <h3>Isha Verma → Sarah Johnson</h3>
+                    <span class="assignment-status">Active</span>
+                </div>
+                <div class="assignment-details">
+                    <p><strong>Topic:</strong> Product Management Fundamentals</p>
+                    <p><strong>Sessions:</strong> 3 total</p>
+                    <p><strong>Assigned on:</strong> 20 Apr 2026</p>
+                </div>
+                <div class="assignment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>0 / 3</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="assignment-actions">
+                    <button class="btn-outline-small">View</button>
+                    <button class="btn-outline-small">Edit</button>
+                    <button class="btn-outline-small">End</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="page-section">
+        <h2>Recent Activity</h2>
+        <div class="activity-feed-section">
+            <div class="activity-feed-item">
+                <div class="activity-icon">✅</div>
+                <div class="activity-content">
+                    <h4>Session Completed</h4>
+                    <p>Priya Kumar completed session with Dr. Rajesh Kumar</p>
+                    <div class="activity-time">2 hours ago</div>
+                </div>
+            </div>
+
+            <div class="activity-feed-item">
+                <div class="activity-icon">📝</div>
+                <div class="activity-content">
+                    <h4>Feedback Submitted</h4>
+                    <p>Dr. Rajesh Kumar submitted feedback for Priya Kumar</p>
+                    <div class="activity-time">1 hour ago</div>
+                </div>
+            </div>
+
+            <div class="activity-feed-item">
+                <div class="activity-icon">🎯</div>
+                <div class="activity-content">
+                    <h4>New Assignment</h4>
+                    <p>Assigned Isha Verma to Sarah Johnson for Product Management</p>
+                    <div class="activity-time">5 hours ago</div>
+                </div>
+            </div>
+
+            <div class="activity-feed-item">
+                <div class="activity-icon">📊</div>
+                <div class="activity-content">
+                    <h4>Placement Milestone</h4>
+                    <p>225 students successfully placed this quarter</p>
+                    <div class="activity-time">1 day ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Statistics -->
+    <section class="page-section">
+        <h2>Program Statistics</h2>
+        <div class="college-stats-grid">
+            <div class="college-stat-card">
+                <div class="college-stat-number">215</div>
+                <div class="college-stat-label">Students Assigned</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">30</div>
+                <div class="college-stat-label">Pending Assignment</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">4.8 ⭐</div>
+                <div class="college-stat-label">Avg Session Rating</div>
+            </div>
+            <div class="college-stat-card">
+                <div class="college-stat-number">₹24 LPA</div>
+                <div class="college-stat-label">Avg CTC</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignment Modal -->
+    <div id="assignModal" class="modal-large" style="display: none;">
+        <div class="modal-content-large">
+            <span class="close" onclick="closeAssignModal()">&times;</span>
+            <h2>Assign One-on-One Session</h2>
+            <form id="assignForm">
+                <div class="form-group">
+                    <label>Select Student *</label>
+                    <select id="studentSelect" required>
+                        <option value="">Choose a student...</option>
+                        <option value="priya">Priya Kumar (Batch 2024)</option>
+                        <option value="amit">Amit Singh (Batch 2024)</option>
+                        <option value="neha">Neha Patel (Batch 2024)</option>
+                        <option value="rajeev">Rajeev Kumar (Batch 2023)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Alumni Mentor *</label>
+                    <select id="alumniSelect" required>
+                        <option value="">Choose an alumni...</option>
+                        <option value="rajesh">Dr. Rajesh Kumar (Google)</option>
+                        <option value="sarah">Sarah Johnson (InnovateLabs)</option>
+                        <option value="vikas">Vikas Singh (StartupHub)</option>
+                        <option value="priya">Priya Verma (CreativeStudio)</option>
+                        <option value="anjali">Anjali Desai (McKinsey)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Session Topic *</label>
+                    <input type="text" id="sessionTopic" required placeholder="e.g., Machine Learning Projects">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Sessions *</label>
+                    <select id="sessionCount" required>
+                        <option value="">Select sessions...</option>
+                        <option value="3">3 Sessions</option>
+                        <option value="5">5 Sessions</option>
+                        <option value="8">8 Sessions</option>
+                        <option value="10">10 Sessions</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="sessionNotes" rows="3" placeholder="Add any additional notes..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Assign Session</button>
+                    <button type="button" class="btn-secondary" onclick="closeAssignModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/college-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+
+        function openAssignModal() {
+            document.getElementById('assignModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAssignModal() {
+            document.getElementById('assignModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('assignForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Session assigned successfully!');
+            closeAssignModal();
+            document.getElementById('assignForm').reset();
+        });
+    </script>
+</body>
+</html>

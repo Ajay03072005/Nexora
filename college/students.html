@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/college.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="students.html" class="nav-link active">Students</a></li>
+                <li><a href="alumni.html" class="nav-link">Alumni</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+                <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🏫 College Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manage Students 👨‍🎓</h1>
+            <p>Track student participation in mentorship program</p>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <input type="text" placeholder="Search student by name or ID..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Batches</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+            </select>
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Branches</option>
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electronics</option>
+                <option>Mechanical</option>
+            </select>
+            <button class="btn-primary">+ Add Student</button>
+        </div>
+    </section>
+
+    <!-- Students Table -->
+    <section class="page-section">
+        <h2>Active Students (245)</h2>
+        <table class="analytics-table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Roll No.</th>
+                    <th>Batch</th>
+                    <th>Branch</th>
+                    <th>Assigned Mentor</th>
+                    <th>Status</th>
+                    <th>Sessions Completed</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Priya Kumar</td>
+                    <td>2024001</td>
+                    <td>2024</td>
+                    <td>Computer Science</td>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>2 / 5</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Amit Singh</td>
+                    <td>2024002</td>
+                    <td>2024</td>
+                    <td>Information Technology</td>
+                    <td>Rahul Sharma</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>1 / 5</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Neha Patel</td>
+                    <td>2024003</td>
+                    <td>2024</td>
+                    <td>Computer Science</td>
+                    <td>Anjali Desai</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>0 / 8</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Isha Verma</td>
+                    <td>2024004</td>
+                    <td>2024</td>
+                    <td>Electronics</td>
+                    <td>Sarah Johnson</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>0 / 3</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vikram Singh</td>
+                    <td>2024005</td>
+                    <td>2024</td>
+                    <td>Computer Science</td>
+                    <td>Vikas Singh</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>3 / 4</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Priyank Verma</td>
+                    <td>2024006</td>
+                    <td>2024</td>
+                    <td>Information Technology</td>
+                    <td>Priya Verma</td>
+                    <td><span class="status confirmed">Active</span></td>
+                    <td>3 / 8</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rajeev Kumar</td>
+                    <td>2023001</td>
+                    <td>2023</td>
+                    <td>Computer Science</td>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td><span class="status completed">Completed</span></td>
+                    <td>5 / 5</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ananya Gupta</td>
+                    <td>2023002</td>
+                    <td>2023</td>
+                    <td>Electronics</td>
+                    <td>Not Assigned</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>0 / 0</td>
+                    <td>
+                        <button class="btn-outline-small" style="font-size: 0.75rem;">Assign</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/college-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

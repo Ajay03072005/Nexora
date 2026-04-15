@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions Management - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/college.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="students.html" class="nav-link">Students</a></li>
+                <li><a href="alumni.html" class="nav-link">Alumni</a></li>
+                <li><a href="sessions.html" class="nav-link active">Sessions</a></li>
+                <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🏫 College Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sessions Management 📅</h1>
+            <p>Monitor and manage all mentoring sessions</p>
+        </div>
+    </section>
+
+    <!-- Session Statistics -->
+    <section class="page-section">
+        <div class="sessions-overview-stats">
+            <div class="session-stat-card">
+                <div class="session-stat-number">156</div>
+                <div class="session-stat-label">Completed Sessions</div>
+                <div class="session-stat-icon">✅</div>
+            </div>
+            <div class="session-stat-card">
+                <div class="session-stat-number">34</div>
+                <div class="session-stat-label">Upcoming Sessions</div>
+                <div class="session-stat-icon">⏰</div>
+            </div>
+            <div class="session-stat-card">
+                <div class="session-stat-number">8</div>
+                <div class="session-stat-label">In Progress</div>
+                <div class="session-stat-icon">🔄</div>
+            </div>
+            <div class="session-stat-card">
+                <div class="session-stat-number">2</div>
+                <div class="session-stat-label">Rescheduled</div>
+                <div class="session-stat-icon">📝</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Status</option>
+                <option>Upcoming</option>
+                <option>Completed</option>
+                <option>In Progress</option>
+                <option>Rescheduled</option>
+            </select>
+            <input type="text" placeholder="Search by student or mentor..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+    </section>
+
+    <!-- Upcoming Sessions -->
+    <section class="page-section">
+        <h2>Upcoming Sessions (34)</h2>
+        <table class="analytics-table">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Student</th>
+                    <th>Mentor</th>
+                    <th>Topic</th>
+                    <th>Duration</th>
+                    <th>Mode</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>22 Apr, 2:00 PM</td>
+                    <td>Priya Kumar</td>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td>ML Fundamentals</td>
+                    <td>1 hour</td>
+                    <td>Google Meet</td>
+                    <td><span style="background: #fef3c7; color: #78350f; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">Scheduled</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Manage</button></td>
+                </tr>
+                <tr>
+                    <td>24 Apr, 3:00 PM</td>
+                    <td>Vikram Singh</td>
+                    <td>Vikas Singh</td>
+                    <td>System Design</td>
+                    <td>1.5 hours</td>
+                    <td>Zoom</td>
+                    <td><span style="background: #fef3c7; color: #78350f; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">Scheduled</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Manage</button></td>
+                </tr>
+                <tr>
+                    <td>24 Apr, 6:00 PM</td>
+                    <td>Priyank Verma</td>
+                    <td>Priya Verma</td>
+                    <td>React Advanced</td>
+                    <td>1 hour</td>
+                    <td>Google Meet</td>
+                    <td><span style="background: #fef3c7; color: #78350f; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">Scheduled</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Manage</button></td>
+                </tr>
+                <tr>
+                    <td>26 Apr, 5:00 PM</td>
+                    <td>Isha Verma</td>
+                    <td>Sarah Johnson</td>
+                    <td>Career Planning</td>
+                    <td>1 hour</td>
+                    <td>Zoom</td>
+                    <td><span style="background: #fef3c7; color: #78350f; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">Scheduled</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Manage</button></td>
+                </tr>
+                <tr>
+                    <td>27 Apr, 4:00 PM</td>
+                    <td>Priya Kumar</td>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td>ML Project Review</td>
+                    <td>1 hour</td>
+                    <td>Google Meet</td>
+                    <td><span style="background: #fef3c7; color: #78350f; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">Scheduled</span></td>
+                    <td><button class="btn-outline-small" style="font-size: 0.75rem;">Manage</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Completed Sessions -->
+    <section class="page-section">
+        <h2>Completed Sessions (156)</h2>
+        <table class="analytics-table">
+            <thead>
+                <tr>
+                    <th>Date Completed</th>
+                    <th>Student</th>
+                    <th>Mentor</th>
+                    <th>Topic</th>
+                    <th>Feedback Given</th>
+                    <th>Student Rating</th>
+                    <th>Mentor Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20 Apr, 3:15 PM</td>
+                    <td>Priya Kumar</td>
+                    <td>Dr. Rajesh Kumar</td>
+                    <td>ML Fundamentals</td>
+                    <td>✓</td>
+                    <td>5.0 ⭐</td>
+                    <td>4.9 ⭐</td>
+                </tr>
+                <tr>
+                    <td>18 Apr, 5:00 PM</td>
+                    <td>Vikram Singh</td>
+                    <td>Vikas Singh</td>
+                    <td>Interview Prep</td>
+                    <td>✓</td>
+                    <td>4.8 ⭐</td>
+                    <td>4.8 ⭐</td>
+                </tr>
+                <tr>
+                    <td>17 Apr, 7:30 PM</td>
+                    <td>Priyank Verma</td>
+                    <td>Priya Verma</td>
+                    <td>React Session</td>
+                    <td>✓</td>
+                    <td>4.9 ⭐</td>
+                    <td>4.7 ⭐</td>
+                </tr>
+                <tr>
+                    <td>15 Apr, 4:00 PM</td>
+                    <td>Isha Verma</td>
+                    <td>Sarah Johnson</td>
+                    <td>Product Management</td>
+                    <td>✓</td>
+                    <td>5.0 ⭐</td>
+                    <td>5.0 ⭐</td>
+                </tr>
+                <tr>
+                    <td>12 Apr, 3:00 PM</td>
+                    <td>Amit Singh</td>
+                    <td>Rahul Sharma</td>
+                    <td>Software Design</td>
+                    <td>✓</td>
+                    <td>4.7 ⭐</td>
+                    <td>4.6 ⭐</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/college-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

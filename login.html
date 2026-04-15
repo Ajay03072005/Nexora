@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlumniHub - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>AlumniHub</h1>
+                <p>College Alumni Platform</p>
+            </div>
+
+            <div class="role-selector">
+                <div class="role-tabs">
+                    <button class="role-tab active" data-role="student">
+                        <span class="role-icon">👨‍🎓</span>
+                        <span>Student</span>
+                    </button>
+                    <button class="role-tab" data-role="alumni">
+                        <span class="role-icon">👔</span>
+                        <span>Alumni</span>
+                    </button>
+                    <button class="role-tab" data-role="college">
+                        <span class="role-icon">🏫</span>
+                        <span>College Admin</span>
+                    </button>
+                </div>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+
+                <button type="submit" class="btn-primary btn-login-submit">Login</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+            </div>
+
+            <div class="demo-info">
+                <p><strong>Demo Accounts:</strong></p>
+                <ul>
+                    <li>Student: student@college.edu / password123</li>
+                    <li>Alumni: alumni@college.edu / password123</li>
+                    <li>College: college@admin.edu / password123</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="login-sidebar">
+            <div class="sidebar-content">
+                <h2>Welcome Back</h2>
+                <p>Connect with alumni, get mentorship, and advance your career</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">💼</span>
+                        <span>One-on-One Sessions</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Performance Feedback</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎓</span>
+                        <span>Career Guidance</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📅</span>
+                        <span>Networking Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Account</h2>
+            <form class="modal-form signup-form">
+                <div class="form-group">
+                    <label for="signupRole">I am a:</label>
+                    <select id="signupRole" required>
+                        <option value="">Select role...</option>
+                        <option value="student">Student</option>
+                        <option value="alumni">Alumni</option>
+                        <option value="college">College Administrator</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Batch Year / Designation" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

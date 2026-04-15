@@ -1,0 +1,397 @@
+/* ============================================
+   AlumniHub - Alumni Specific Styles
+   ============================================ */
+
+/* Alumni Dashboard Stats */
+.alumni-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.alumni-stat-card {
+    background: #2d7e3d;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(45, 126, 61, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.alumni-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(45, 126, 61, 0.3);
+}
+
+.alumni-stat-card:nth-child(2) {
+    background: #f4c430;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(244, 196, 48, 0.2);
+}
+
+.alumni-stat-card:nth-child(2):hover {
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.3);
+}
+
+.alumni-stat-card:nth-child(3) {
+    background: #1f5a2b;
+    color: white;
+    box-shadow: 0 4px 15px rgba(31, 90, 43, 0.2);
+}
+
+.alumni-stat-card:nth-child(3):hover {
+    box-shadow: 0 6px 20px rgba(31, 90, 43, 0.3);
+}
+
+.alumni-stat-card:nth-child(4) {
+    background: #e8a11e;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(232, 161, 30, 0.2);
+}
+
+.alumni-stat-card:nth-child(4):hover {
+    box-shadow: 0 6px 20px rgba(232, 161, 30, 0.3);
+}
+
+.alumni-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.alumni-stat-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Pending Requests Grid */
+.requests-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.request-card-detailed {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #2d7e3d;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.request-card-detailed:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.request-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.request-header h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.05rem;
+}
+
+.avatar-small {
+    font-size: 2.5rem;
+    display: block;
+    text-align: center;
+}
+
+/* Profile Card */
+.profile-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar-large {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.profile-info h3 {
+    margin: 0 0 0.5rem;
+    color: #2d3748;
+}
+
+.profile-title {
+    color: #2d7e3d;
+    font-weight: 600;
+    margin: 0.25rem 0;
+}
+
+.profile-company {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* Connection Cards */
+.connection-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid #2d7e3d;
+}
+
+.connection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.connection-avatar {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.connection-card h3 {
+    margin: 0.5rem 0;
+    color: #2d3748;
+}
+
+.connection-title {
+    color: #2d7e3d;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+}
+
+.connection-company {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* Calendar Schedule */
+.calendar-schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-day {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day-header {
+    background: #2d7e3d;
+    color: white;
+    padding: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid #1f5a2b;
+}
+
+.calendar-day-content {
+    padding: 1rem;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Schedules and History */
+.schedule-item {
+    background: white;
+    border-left: 5px solid #2d7e3d;
+    padding: 1.5rem;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-time {
+    color: #2d7e3d;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.schedule-details h4 {
+    color: #2d3748;
+    margin: 0;
+}
+
+.schedule-details p {
+    margin: 0.25rem 0;
+}
+
+/* History Items */
+.history-item {
+    background: white;
+    border-left: 5px solid #2d7e3d;
+    padding: 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Activity Feed */
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-feed-item {
+    background: white;
+    border-left: 5px solid #f4c430;
+    padding: 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.activity-icon {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 40px;
+    flex-shrink: 0;
+}
+
+.activity-content h4 {
+    margin: 0 0 0.5rem;
+    color: #2d3748;
+}
+
+.activity-content p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.activity-time {
+    color: #999;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Job Posted Cards */
+.job-posted-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #2d7e3d;
+    transition: all 0.3s ease;
+}
+
+.job-posted-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.job-posted-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.job-posted-header h3 {
+    margin: 0;
+    color: #2d3748;
+}
+
+.job-status {
+    background: #d4edda;
+    color: #155724;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.job-posted-info {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.job-posted-info p {
+    margin: 0.35rem 0;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+/* Jobs Board Grid */
+.jobs-board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-header {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-avatar-large {
+        font-size: 3rem;
+    }
+
+    .calendar-schedule {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .schedule-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .schedule-time {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .request-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .calendar-schedule {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .schedule-item {
+        grid-template-columns: 1fr;
+    }
+}

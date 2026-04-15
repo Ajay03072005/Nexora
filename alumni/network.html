@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Network - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/alumni.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="requests.html" class="nav-link">Requests</a></li>
+                <li><a href="schedules.html" class="nav-link">Schedules</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+                <li><a href="network.html" class="nav-link active">Network</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🎓 Alumni</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Alumni Network 🌐</h1>
+            <p>Connect with fellow alumni and expand your professional network</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <input type="text" placeholder="Search alumni by name or company..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Industries</option>
+                <option>Technology</option>
+                <option>Finance</option>
+                <option>Consulting</option>
+                <option>Startup</option>
+            </select>
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Batch Years</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Network Grid -->
+    <section class="page-section">
+        <h2>Your Network (127 connections)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem;">
+            <div class="connection-card">
+                <div class="connection-avatar">🧑‍💼</div>
+                <h3>Rajesh Kumar</h3>
+                <p class="connection-title">Senior ML Engineer</p>
+                <p class="connection-company">Google India</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-avatar">👩‍💼</div>
+                <h3>Sarah Johnson</h3>
+                <p class="connection-title">Product Manager</p>
+                <p class="connection-company">InnovateLabs</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-avatar">🧑‍💻</div>
+                <h3>Vikas Singh</h3>
+                <p class="connection-title">Founder & CEO</p>
+                <p class="connection-company">StartupHub</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-avatar">👩‍🎨</div>
+                <h3>Priya Verma</h3>
+                <p class="connection-title">Design Lead</p>
+                <p class="connection-company">CreativeStudio</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-avatar">🧑‍⚖️</div>
+                <h3>Anjali Desai</h3>
+                <p class="connection-title">Senior Consultant</p>
+                <p class="connection-company">McKinsey & Company</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-avatar">🧑‍💰</div>
+                <h3>Rohan Patel</h3>
+                <p class="connection-title">Investment Manager</p>
+                <p class="connection-company">Venture Capital Fund</p>
+                <button class="btn-outline-small" style="width: 100%; margin-top: 1rem;">View Profile</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Activity Feed -->
+    <section class="page-section">
+        <h2>Network Activity</h2>
+        <div class="activity-feed">
+            <div class="activity-feed-item">
+                <div style="font-size: 1.5rem;">📝</div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0;">Rajesh Kumar</h4>
+                    <p style="margin: 0.25rem 0; color: #666;">Posted: "Excited to share my new ML project focusing on NLP applications..."</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">2 hours ago • 24 likes</p>
+                </div>
+                <button class="btn-outline-small">View</button>
+            </div>
+
+            <div class="activity-feed-item">
+                <div style="font-size: 1.5rem;">🎉</div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0;">Sarah Johnson</h4>
+                    <p style="margin: 0.25rem 0; color: #666;">Promoted to VP of Product at InnovateLabs</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">1 day ago • 156 likes • 42 comments</p>
+                </div>
+                <button class="btn-outline-small">Congratulate</button>
+            </div>
+
+            <div class="activity-feed-item">
+                <div style="font-size: 1.5rem;">🚀</div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0;">Vikas Singh</h4>
+                    <p style="margin: 0.25rem 0; color: #666;">StartupHub announced Series B funding of $5M</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">2 days ago • 312 likes • 89 comments</p>
+                </div>
+                <button class="btn-outline-small">View</button>
+            </div>
+
+            <div class="activity-feed-item">
+                <div style="font-size: 1.5rem;">📚</div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0;">Anjali Desai</h4>
+                    <p style="margin: 0.25rem 0; color: #666;">Published article: "Digital Transformation in 2026"</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">3 days ago • 78 likes • 12 shares</p>
+                </div>
+                <button class="btn-outline-small">Read</button>
+            </div>
+
+            <div class="activity-feed-item">
+                <div style="font-size: 1.5rem;">💡</div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0;">Priya Verma</h4>
+                    <p style="margin: 0.25rem 0; color: #666;">Started mentoring 5 students for UI/UX design</p>
+                    <p style="margin: 0.25rem 0; color: #999; font-size: 0.875rem;">5 days ago • 45 likes • 8 comments</p>
+                </div>
+                <button class="btn-outline-small">Connect</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/alumni-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

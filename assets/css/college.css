@@ -1,0 +1,536 @@
+/* ============================================
+   AlumniHub - College Specific Styles
+   ============================================ */
+
+/* College Dashboard Stats */
+.college-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.college-stat-card {
+    background: #2d7e3d;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(45, 126, 61, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.college-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(45, 126, 61, 0.3);
+}
+
+.college-stat-card:nth-child(2) {
+    background: #f4c430;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(244, 196, 48, 0.2);
+}
+
+.college-stat-card:nth-child(2):hover {
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.3);
+}
+
+.college-stat-card:nth-child(3) {
+    background: #1f5a2b;
+    color: white;
+    box-shadow: 0 4px 15px rgba(31, 90, 43, 0.2);
+}
+
+.college-stat-card:nth-child(3):hover {
+    box-shadow: 0 6px 20px rgba(31, 90, 43, 0.3);
+}
+
+.college-stat-card:nth-child(4) {
+    background: #e8a11e;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(232, 161, 30, 0.2);
+}
+
+.college-stat-card:nth-child(4):hover {
+    box-shadow: 0 6px 20px rgba(232, 161, 30, 0.3);
+}
+
+.college-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.college-stat-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Assignment Cards */
+.assignment-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #2d7e3d;
+    transition: all 0.3s ease;
+}
+
+.assignment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.assignment-header h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.05rem;
+}
+
+.assignment-due {
+    color: #e8a11e;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.assignment-description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Progress Bars */
+.progress-container {
+    margin: 1.5rem 0;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    height: 18px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2d7e3d;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.progress-fill.warning {
+    background: #e8a11e;
+}
+
+.progress-fill.success {
+    background: #2d7e3d;
+}
+
+.progress-fill.secondary {
+    background: #f4c430;
+}
+
+.progress-fill.dark {
+    background: #1f5a2b;
+}
+
+/* KPI Cards */
+.kpi-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #2d7e3d;
+}
+
+.kpi-card:nth-child(2) {
+    border-top-color: #f4c430;
+}
+
+.kpi-card:nth-child(3) {
+    border-top-color: #1f5a2b;
+}
+
+.kpi-card:nth-child(4) {
+    border-top-color: #e8a11e;
+}
+
+.kpi-label {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+/* Analytics Table */
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-table thead {
+    background: #2d7e3d;
+    color: white;
+}
+
+.analytics-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px solid #1f5a2b;
+}
+
+.analytics-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.analytics-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.analytics-table tbody tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+/* Success Cards */
+.success-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #2d7e3d;
+    transition: all 0.3s ease;
+}
+
+.success-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.success-card:nth-child(2) {
+    border-top-color: #f4c430;
+}
+
+.success-card:nth-child(3) {
+    border-top-color: #1f5a2b;
+}
+
+.success-card:nth-child(4) {
+    border-top-color: #e8a11e;
+}
+
+.success-title {
+    color: #2d3748;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.success-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d7e3d;
+}
+
+.success-card:nth-child(2) .success-value {
+    color: #f4c430;
+}
+
+.success-card:nth-child(3) .success-value {
+    color: #1f5a2b;
+}
+
+.success-card:nth-child(4) .success-value {
+    color: #e8a11e;
+}
+
+/* Quality Metrics */
+.quality-metric {
+    background: white;
+    border-top: 5px solid #2d7e3d;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.quality-metric:nth-child(2) {
+    border-top-color: #f4c430;
+}
+
+.quality-metric:nth-child(3) {
+    border-top-color: #1f5a2b;
+}
+
+.quality-metric:nth-child(4) {
+    border-top-color: #e8a11e;
+}
+
+.quality-name {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.quality-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d7e3d;
+}
+
+/* Industry Distribution */
+.industry-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.industry-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 50px;
+    gap: 1rem;
+    align-items: center;
+}
+
+.industry-name {
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.industry-bar {
+    height: 24px;
+    background: #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.industry-bar-fill {
+    height: 100%;
+    background: #2d7e3d;
+    border-radius: 12px;
+    transition: width 0.4s ease;
+}
+
+.industry-count {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    color: #999;
+    margin: 1.5rem 0;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #2d7e3d;
+}
+
+.chart-placeholder svg {
+    margin: auto;
+}
+
+/* Tab Navigation */
+.tab-system {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: #2d7e3d;
+}
+
+.tab.active {
+    color: #2d7e3d;
+    border-bottom-color: #2d7e3d;
+}
+
+/* Notification Badges */
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background: #2d7e3d;
+    color: white;
+}
+
+.badge-secondary {
+    background: #f4c430;
+    color: #1a1a1a;
+}
+
+.badge-dark {
+    background: #1f5a2b;
+    color: white;
+}
+
+.badge-warning {
+    background: #e8a11e;
+    color: #1a1a1a;
+}
+
+/* Forms in College Dashboard */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2d7e3d;
+    box-shadow: 0 0 0 3px rgba(45, 126, 61, 0.1);
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #2d7e3d;
+    box-shadow: 0 0 0 3px rgba(45, 126, 61, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .college-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analytics-table {
+        font-size: 0.85rem;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 0.6rem;
+    }
+
+    .industry-item {
+        grid-template-columns: 100px 1fr 40px;
+    }
+
+    .tab-system {
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .college-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .assignment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .assignment-due {
+        width: 100%;
+        text-align: left;
+    }
+
+    .analytics-table {
+        font-size: 0.75rem;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 0.4rem;
+    }
+
+    .industry-item {
+        grid-template-columns: 80px 1fr 35px;
+    }
+
+    .tab-system {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tab {
+        padding: 0.75rem;
+        border-bottom: 2px solid #e0e0e0;
+        border-left: 3px solid transparent;
+    }
+
+    .tab.active {
+        border-bottom: none;
+        border-left-color: #2d7e3d;
+    }
+}

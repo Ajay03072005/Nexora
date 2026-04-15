@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sessions - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="directory.html" class="nav-link">Directory</a></li>
+                <li><a href="sessions.html" class="nav-link active">Sessions</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">👨‍🎓 Student</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>My Mentoring Sessions 🎓</h1>
+            <p>Track your mentoring sessions and progress with alumni mentors</p>
+        </div>
+    </section>
+
+    <!-- Session Tabs -->
+    <section class="page-section">
+        <div class="session-tabs">
+            <button class="tab-btn active" onclick="switchTab('upcoming')">Upcoming (3)</button>
+            <button class="tab-btn" onclick="switchTab('ongoing')">Ongoing (2)</button>
+            <button class="tab-btn" onclick="switchTab('completed')">Completed (8)</button>
+        </div>
+
+        <!-- Upcoming Sessions -->
+        <div id="upcoming" class="tab-content active">
+            <div class="session-requests-grid">
+                <div class="session-card-full">
+                    <div class="session-card-header">
+                        <h3>Machine Learning Fundamentals - Session 2</h3>
+                        <span class="status upcoming">Upcoming</span>
+                    </div>
+                    <div class="session-details-grid">
+                        <div>
+                            <p class="label">Mentor</p>
+                            <p class="value">Dr. Rajesh Kumar (Google)</p>
+                        </div>
+                        <div>
+                            <p class="label">Date & Time</p>
+                            <p class="value">24 Apr 2026, 3:00 PM</p>
+                        </div>
+                        <div>
+                            <p class="label">Duration</p>
+                            <p class="value">1 hour</p>
+                        </div>
+                        <div>
+                            <p class="label">Mode</p>
+                            <p class="value">Video Call (Google Meet)</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p class="label">Topic</p>
+                        <p>Deep Learning with TensorFlow and practical applications in production environments.</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn-primary">Join Call</button>
+                        <button class="btn-secondary">Reschedule</button>
+                        <button class="btn-outline-small">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="session-card-full">
+                    <div class="session-card-header">
+                        <h3>Career Growth Planning</h3>
+                        <span class="status upcoming">Upcoming</span>
+                    </div>
+                    <div class="session-details-grid">
+                        <div>
+                            <p class="label">Mentor</p>
+                            <p class="value">Sarah Johnson (InnovateLabs)</p>
+                        </div>
+                        <div>
+                            <p class="label">Date & Time</p>
+                            <p class="value">26 Apr 2026, 5:00 PM</p>
+                        </div>
+                        <div>
+                            <p class="label">Duration</p>
+                            <p class="value">1 hour</p>
+                        </div>
+                        <div>
+                            <p class="label">Mode</p>
+                            <p class="value">Video Call (Zoom)</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p class="label">Topic</p>
+                        <p>10-year career roadmap, skill development, and job market trends.</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn-primary">Join Call</button>
+                        <button class="btn-secondary">Reschedule</button>
+                        <button class="btn-outline-small">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="session-card-full">
+                    <div class="session-card-header">
+                        <h3>Interview Preparation - System Design</h3>
+                        <span class="status upcoming">Upcoming</span>
+                    </div>
+                    <div class="session-details-grid">
+                        <div>
+                            <p class="label">Mentor</p>
+                            <p class="value">Vikas Singh (StartupHub)</p>
+                        </div>
+                        <div>
+                            <p class="label">Date & Time</p>
+                            <p class="value">28 Apr 2026, 2:00 PM</p>
+                        </div>
+                        <div>
+                            <p class="label">Duration</p>
+                            <p class="value">1.5 hours</p>
+                        </div>
+                        <div>
+                            <p class="label">Mode</p>
+                            <p class="value">Video Call (Google Meet)</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p class="label">Topic</p>
+                        <p>Advanced system design patterns, scalability, and technical interview tips.</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn-primary">Join Call</button>
+                        <button class="btn-secondary">Reschedule</button>
+                        <button class="btn-outline-small">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ongoing Sessions -->
+        <div id="ongoing" class="tab-content" style="display: none;">
+            <div class="session-requests-grid">
+                <div class="session-card-full">
+                    <div class="session-card-header">
+                        <h3>Frontend Development Track</h3>
+                        <span class="status confirmed">Active</span>
+                    </div>
+                    <div class="session-details-grid">
+                        <div>
+                            <p class="label">Mentor</p>
+                            <p class="value">Priya Verma (CreativeStudio)</p>
+                        </div>
+                        <div>
+                            <p class="label">Total Sessions</p>
+                            <p class="value">5 sessions</p>
+                        </div>
+                        <div>
+                            <p class="label">Completed</p>
+                            <p class="value">2 / 5</p>
+                        </div>
+                        <div>
+                            <p class="label">Started On</p>
+                            <p class="value">15 Apr 2026</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p class="label">Topic</p>
+                        <p>Advanced React, TypeScript, and modern web development practices.</p>
+                        <div style="margin-top: 1rem; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;">
+                            <div style="font-size: 0.875rem; color: #666;">Progress: 40%</div>
+                            <div style="background: #e5e7eb; height: 8px; border-radius: 4px; margin-top: 0.25rem; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, #ff006e, #8338ec); width: 40%; height: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn-primary">View Progress</button>
+                        <button class="btn-outline-small">Leave Program</button>
+                    </div>
+                </div>
+
+                <div class="session-card-full">
+                    <div class="session-card-header">
+                        <h3>Data Science Masterclass</h3>
+                        <span class="status confirmed">Active</span>
+                    </div>
+                    <div class="session-details-grid">
+                        <div>
+                            <p class="label">Mentor</p>
+                            <p class="value">Dr. Rajesh Kumar (Google)</p>
+                        </div>
+                        <div>
+                            <p class="label">Total Sessions</p>
+                            <p class="value">8 sessions</p>
+                        </div>
+                        <div>
+                            <p class="label">Completed</p>
+                            <p class="value">2 / 8</p>
+                        </div>
+                        <div>
+                            <p class="label">Started On</p>
+                            <p class="value">12 Apr 2026</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p class="label">Topic</p>
+                        <p>Machine learning, neural networks, and real-world AI applications.</p>
+                        <div style="margin-top: 1rem; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;">
+                            <div style="font-size: 0.875rem; color: #666;">Progress: 25%</div>
+                            <div style="background: #e5e7eb; height: 8px; border-radius: 4px; margin-top: 0.25rem; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, #00d9ff, #0099ff); width: 25%; height: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn-primary">View Progress</button>
+                        <button class="btn-outline-small">Leave Program</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Sessions -->
+        <div id="completed" class="tab-content" style="display: none;">
+            <div class="applications-list">
+                <div class="application-item">
+                    <div class="application-header">
+                        <h3>Introduction to Web Development - Session 1</h3>
+                        <span class="status confirmed">✓ Completed</span>
+                    </div>
+                    <p class="company-info-text">Mentor: Priya Verma • 18 Apr, 3:00 PM</p>
+                    <p class="applied-date">Rating: 5.0 ⭐ • Feedback: Excellent session!</p>
+                </div>
+
+                <div class="application-item">
+                    <div class="application-header">
+                        <h3>Machine Learning Fundamentals - Session 1</h3>
+                        <span class="status confirmed">✓ Completed</span>
+                    </div>
+                    <p class="company-info-text">Mentor: Dr. Rajesh Kumar • 16 Apr, 4:00 PM</p>
+                    <p class="applied-date">Rating: 4.8 ⭐ • Feedback: Very insightful discussion</p>
+                </div>
+
+                <div class="application-item">
+                    <div class="application-header">
+                        <h3>Career Development Workshop</h3>
+                        <span class="status confirmed">✓ Completed</span>
+                    </div>
+                    <p class="company-info-text">Mentor: Sarah Johnson • 14 Apr, 6:00 PM</p>
+                    <p class="applied-date">Rating: 4.9 ⭐ • Feedback: Life-changing advice!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+
+        function switchTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
