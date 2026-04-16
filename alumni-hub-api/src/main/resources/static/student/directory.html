@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Directory - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="directory.html" class="nav-link active">Directory</a></li>
+                <li><a href="sessions.html" class="nav-link">Sessions</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">👨‍🎓 Student</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Alumni Directory 👥</h1>
+            <p>Connect with successful alumni for mentorship and guidance</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="page-section">
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <input type="text" placeholder="Search by name, company, or skill..." style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Industries</option>
+                <option>Technology</option>
+                <option>Finance</option>
+                <option>Consulting</option>
+                <option>Product</option>
+            </select>
+            <select style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+                <option>All Batch Years</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Alumni Profiles -->
+    <section class="page-section">
+        <h2>Featured Alumni (28)</h2>
+        <div class="alumni-directory-grid">
+            <div class="alumni-card">
+                <div class="alumni-avatar">🧑‍💼</div>
+                <h3>Dr. Rajesh Kumar</h3>
+                <p class="alumni-title">Senior ML Engineer</p>
+                <p class="alumni-company">Google India</p>
+                <p class="alumni-batch">Batch 2018</p>
+                <p class="alumni-bio">Expert in machine learning and deep learning projects. 8+ years experience.</p>
+                <div class="alumni-tags">
+                    <span class="tag">ML</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">👩‍💼</div>
+                <h3>Sarah Johnson</h3>
+                <p class="alumni-title">Product Manager</p>
+                <p class="alumni-company">InnovateLabs</p>
+                <p class="alumni-batch">Batch 2019</p>
+                <p class="alumni-bio">Led product launches for 3 successful startups. Expertise in SaaS and B2B.</p>
+                <div class="alumni-tags">
+                    <span class="tag">Product</span>
+                    <span class="tag">Startups</span>
+                    <span class="tag">Strategy</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">🧑‍💻</div>
+                <h3>Vikas Singh</h3>
+                <p class="alumni-title">Founder & CEO</p>
+                <p class="alumni-company">StartupHub</p>
+                <p class="alumni-batch">Batch 2017</p>
+                <p class="alumni-bio">Founded 2 successful tech startups. Mentor to 50+ startups. Series A funding expert.</p>
+                <div class="alumni-tags">
+                    <span class="tag">Entrepreneurship</span>
+                    <span class="tag">Startup</span>
+                    <span class="tag">Funding</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">👩‍🎨</div>
+                <h3>Priya Verma</h3>
+                <p class="alumni-title">Design Lead</p>
+                <p class="alumni-company">CreativeStudio</p>
+                <p class="alumni-batch">Batch 2020</p>
+                <p class="alumni-bio">Award-winning designer. UI/UX expert with focus on accessibility and user research.</p>
+                <div class="alumni-tags">
+                    <span class="tag">Design</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Figma</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">🧑‍⚖️</div>
+                <h3>Anjali Desai</h3>
+                <p class="alumni-title">Senior Consultant</p>
+                <p class="alumni-company">McKinsey & Company</p>
+                <p class="alumni-batch">Batch 2021</p>
+                <p class="alumni-bio">Strategy consultant focused on digital transformation. MBA from IIMA.</p>
+                <div class="alumni-tags">
+                    <span class="tag">Consulting</span>
+                    <span class="tag">Strategy</span>
+                    <span class="tag">Digital</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">🧑‍💰</div>
+                <h3>Rohan Patel</h3>
+                <p class="alumni-title">Investment Manager</p>
+                <p class="alumni-company">Venture Capital Fund</p>
+                <p class="alumni-batch">Batch 2019</p>
+                <p class="alumni-bio">Manages portfolio of 15+ tech startups. 10+ years in venture capital.</p>
+                <div class="alumni-tags">
+                    <span class="tag">VC</span>
+                    <span class="tag">Finance</span>
+                    <span class="tag">Startups</span>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Request Session</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+    </script>
+</body>
+</html>

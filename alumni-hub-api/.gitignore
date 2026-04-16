@@ -1,0 +1,58 @@
+# Maven and IDE files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.backup
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Operating System files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+
+# Build outputs
+bin/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+.node_repl_history
+*.pid
+*.seed
+*.pid.lock
+
+# JavaIDEs
+*.iml
+*.ipr
+*.iws

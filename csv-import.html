@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Import - AlumniHub</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/csv-import.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link" id="dashboardLink">Dashboard</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role" id="userRole"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="csv-import-container">
+        <div class="import-section">
+            <div class="import-header">
+                <h2>📊 Import Data from CSV</h2>
+                <p>Upload a CSV file to bulk import data into the system</p>
+            </div>
+
+            <!-- Import Type Selection -->
+            <div class="import-type-selector">
+                <button class="type-btn active" data-type="students">👥 Students/Alumni</button>
+                <button class="type-btn" data-type="colleges">🏫 Colleges</button>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions-card">
+                <h3>📋 CSV Format Instructions</h3>
+                <p><strong>Your CSV file should have the following columns:</strong></p>
+                
+                <!-- Students Format Table -->
+                <table class="format-table" id="studentsFormatTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Column Name</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Reg. No</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>7140</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Name</td>
+                            <td>Text</td>
+                            <td>✅ Yes</td>
+                            <td>John Doe A</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Career Path</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Software Developer</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>SIET LMS Portal Levels Completion</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Degree</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>B.Tech</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Department</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Computer Science</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Gender</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Male/Female/Other</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>10th Percentage</td>
+                            <td>Number</td>
+                            <td>❌ No</td>
+                            <td>92.5</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>12th/Diploma Percentage</td>
+                            <td>Number</td>
+                            <td>❌ No</td>
+                            <td>95.0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>CGPA</td>
+                            <td>Number (out of 10)</td>
+                            <td>❌ No</td>
+                            <td>8.5</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Standing Arrears Count</td>
+                            <td>Number</td>
+                            <td>❌ No</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>History Arrears Count</td>
+                            <td>Number</td>
+                            <td>❌ No</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>College Email ID</td>
+                            <td>Email</td>
+                            <td>✅ Yes</td>
+                            <td>john.doe@sriShakthi.ac.in</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Personal Email ID</td>
+                            <td>Email</td>
+                            <td>❌ No</td>
+                            <td>john.doe@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Mobile Number</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>+91-9876543210</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Whatsapp Number</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>+91-9876543210</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>Technical Languages Known</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Java, Python, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>Certifications Done</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>JCP, CCNA</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>Achievements</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Won Hackathon 2023, ₹50,000</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>Other Communication Languages</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Tamil, Hindi</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>Full Address</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>No.123, Main St, Chennai-600001</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>City</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Chennai</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>State</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Tamil Nadu</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>Aadhar Card Number</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>XXXX-XXXX-1234</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>PAN No</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>ABCDE1234F</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Colleges Format Table (Hidden by default) -->
+                <table class="format-table" id="collegesFormatTable" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>name</td>
+                            <td>Text</td>
+                            <td>✅ Yes</td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>email</td>
+                            <td>Email</td>
+                            <td>✅ Yes</td>
+                            <td>contact@mit.edu</td>
+                        </tr>
+                        <tr>
+                            <td>location</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Cambridge, MA</td>
+                        </tr>
+                        <tr>
+                            <td>contactNumber</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>+1-617-253-4791</td>
+                        </tr>
+                        <tr>
+                            <td>description</td>
+                            <td>Text</td>
+                            <td>❌ No</td>
+                            <td>Leading research university</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="note">💡 <strong>Note:</strong> The first row should contain column headers.</p>
+                <a href="#" class="btn-secondary" id="downloadTemplate">⬇️ Download Template CSV</a>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drag and drop your CSV file here</h3>
+                    <p>or</p>
+                    <label for="csvFile" class="btn-primary">Choose File</label>
+                    <input type="file" id="csvFile" accept=".csv,.xlsx,.xls" hidden>
+                    <p class="file-info">Supported formats: <strong>.csv, .xlsx, .xls</strong></p>
+                </div>
+            </div>
+
+            <!-- File Preview -->
+            <div id="filePreview" class="file-preview hidden">
+                <h3>📄 Selected File</h3>
+                <div class="file-info-box">
+                    <span id="fileName"></span>
+                    <span id="fileSize"></span>
+                </div>
+                <div class="button-group">
+                    <button class="btn-primary" id="uploadBtn">⬆️ Upload CSV</button>
+                    <button class="btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="uploadProgress" class="upload-progress hidden">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Uploading: 0%</p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section hidden">
+                <h3>📊 Import Results</h3>
+                
+                <!-- Summary Stats -->
+                <div class="results-stats">
+                    <div class="stat-box success">
+                        <div class="stat-number" id="importedCount">0</div>
+                        <div class="stat-label">Successfully Imported</div>
+                    </div>
+                    <div class="stat-box total">
+                        <div class="stat-number" id="totalRows">0</div>
+                        <div class="stat-label">Total Rows</div>
+                    </div>
+                    <div class="stat-box error" id="errorBox">
+                        <div class="stat-number" id="errorCount">0</div>
+                        <div class="stat-label">Errors</div>
+                    </div>
+                </div>
+
+                <!-- Imported Data List -->
+                <div id="importedList" class="imported-list hidden">
+                    <h4 id="importedListTitle">✅ Successfully Imported</h4>
+                    <table class="results-table">
+                        <thead id="tableHead">
+                        </thead>
+                        <tbody id="importedTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Errors List -->
+                <div id="errorsList" class="errors-list hidden">
+                    <h4>❌ Errors & Issues</h4>
+                    <div class="error-messages" id="errorMessages">
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button class="btn-primary" id="importAgainBtn">Import Another File</button>
+                    <button class="btn-secondary" id="viewDataBtn">View All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
+    <script src="assets/js/csv-import.js"></script>
+</body>
+</html>

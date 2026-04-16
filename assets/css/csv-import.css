@@ -1,0 +1,514 @@
+/* ============================================
+   AlumniHub - CSV Import Styles
+   ============================================ */
+
+.csv-import-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.import-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.import-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.import-header h2 {
+    font-size: 2rem;
+    color: #2d7e3d;
+    margin-bottom: 0.5rem;
+}
+
+.import-header p {
+    color: #666;
+    font-size: 1.05rem;
+}
+
+/* ============================================
+   IMPORT TYPE SELECTOR
+   ============================================ */
+
+.import-type-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.type-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.type-btn:hover {
+    border-color: #2d7e3d;
+    color: #2d7e3d;
+}
+
+.type-btn.active {
+    background: #2d7e3d;
+    color: white;
+    border-color: #2d7e3d;
+    box-shadow: 0 4px 12px rgba(45, 126, 61, 0.2);
+}
+
+/* ============================================
+   INSTRUCTIONS CARD
+   ============================================ */
+
+.instructions-card {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #f4c430;
+    margin-bottom: 2rem;
+}
+
+.instructions-card h3 {
+    color: #2d7e3d;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.instructions-card p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.format-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.format-table thead {
+    background: #2d7e3d;
+    color: white;
+}
+
+.format-table th,
+.format-table td {
+    padding: 1rem;
+    text-align: left;
+}
+
+.format-table thead th {
+    font-weight: 600;
+}
+
+.format-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.format-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.format-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.note {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 6px;
+    color: #1565c0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+#downloadTemplate {
+    margin-top: 1rem;
+}
+
+/* ============================================
+   UPLOAD AREA
+   ============================================ */
+
+.upload-area {
+    margin: 2rem 0;
+}
+
+.upload-box {
+    border: 3px dashed #2d7e3d;
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+    background: #f9fff8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+    background: #f0fff6;
+    border-color: #f4c430;
+}
+
+.upload-box.dragging {
+    border-color: #f4c430;
+    background: #fffff0;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.upload-box h3 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.upload-box p {
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.file-info {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   FILE PREVIEW
+   ============================================ */
+
+.file-preview {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.file-preview h3 {
+    color: #2d7e3d;
+    margin-bottom: 1rem;
+}
+
+.file-info-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #f4c430;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-info-box span {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.file-info-box span:first-child {
+    flex: 1;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 0.75rem;
+}
+
+.button-group .btn-secondary {
+    flex: 0.5;
+}
+
+/* ============================================
+   UPLOAD PROGRESS
+   ============================================ */
+
+.upload-progress {
+    margin: 2rem 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2d7e3d, #f4c430);
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+#progressText {
+    text-align: center;
+    margin-top: 1rem;
+    color: #2d7e3d;
+    font-weight: 600;
+}
+
+/* ============================================
+   RESULTS SECTION
+   ============================================ */
+
+.results-section {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.results-section h3 {
+    color: #2d7e3d;
+    margin-bottom: 1.5rem;
+}
+
+.results-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 5px solid #2d7e3d;
+}
+
+.stat-box.success {
+    border-left-color: #27ae60;
+    background: #f0fdf4;
+}
+
+.stat-box.error {
+    border-left-color: #e74c3c;
+    background: #fef2f2;
+}
+
+.stat-box.total {
+    border-left-color: #f4c430;
+    background: #fffef5;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d7e3d;
+}
+
+.stat-box.success .stat-number {
+    color: #27ae60;
+}
+
+.stat-box.error .stat-number {
+    color: #e74c3c;
+}
+
+.stat-box.total .stat-number {
+    color: #f4c430;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   RESULTS TABLE
+   ============================================ */
+
+.imported-list,
+.errors-list {
+    margin: 1.5rem 0;
+}
+
+.imported-list h4,
+.errors-list h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.results-table thead {
+    background: #2d7e3d;
+    color: white;
+}
+
+.results-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.results-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ============================================
+   ERROR MESSAGES
+   ============================================ */
+
+.error-messages {
+    background: white;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.error-message {
+    padding: 0.75rem 1rem;
+    border-left: 4px solid #e74c3c;
+    background: #fef5f5;
+    margin: 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #721c24;
+    font-size: 0.9rem;
+}
+
+.error-message:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   HIDDEN CLASS
+   ============================================ */
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .csv-import-container {
+        padding: 1rem;
+    }
+
+    .import-section {
+        padding: 1.5rem;
+    }
+
+    .import-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .instructions-card {
+        padding: 1.5rem;
+    }
+
+    .format-table th,
+    .format-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .upload-box {
+        padding: 2rem 1rem;
+    }
+
+    .upload-icon {
+        font-size: 2rem;
+    }
+
+    .results-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group .btn-secondary {
+        flex: 1;
+    }
+
+    .results-table {
+        font-size: 0.9rem;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .import-section {
+        padding: 1rem;
+    }
+
+    .import-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .upload-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .file-info-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .file-info-box span {
+        margin-bottom: 0.5rem;
+    }
+
+    .instructions-card {
+        padding: 1rem;
+    }
+
+    .format-table {
+        font-size: 0.85rem;
+    }
+
+    .format-table th,
+    .format-table td {
+        padding: 0.5rem;
+    }
+}

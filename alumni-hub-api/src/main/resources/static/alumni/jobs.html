@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Jobs - AlumniHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/alumni.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AlumniHub</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="requests.html" class="nav-link">Requests</a></li>
+                <li><a href="schedules.html" class="nav-link">Schedules</a></li>
+                <li><a href="jobs.html" class="nav-link active">Jobs</a></li>
+                <li><a href="network.html" class="nav-link">Network</a></li>
+            </ul>
+            <div class="nav-user">
+                <span class="user-role">🎓 Alumni</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Job Opportunities 💼</h1>
+            <p>Post jobs at your company for our alumni network</p>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="page-section">
+        <button class="btn-primary" onclick="openJobModal()">+ Post New Job</button>
+    </section>
+
+    <!-- Posted Jobs -->
+    <section class="page-section">
+        <h2>Your Posted Jobs (5)</h2>
+        <div class="jobs-board-grid">
+            <div class="job-posted-card">
+                <div class="job-posted-header">
+                    <h3>Senior Software Engineer</h3>
+                    <span class="job-status">Active</span>
+                </div>
+                <div class="job-posted-info">
+                    <p class="company-name">Google India</p>
+                    <p class="job-location">📍 Bangalore</p>
+                    <p class="job-paid">₹15-20 LPA</p>
+                </div>
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 4px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem;"><strong>Posted:</strong> 10 days ago</p>
+                    <p style="margin: 0; font-size: 0.875rem;"><strong>Applications:</strong> 24</p>
+                </div>
+                <button class="btn-outline-small" style="width: 100%;">View Applications</button>
+            </div>
+
+            <div class="job-posted-card">
+                <div class="job-posted-header">
+                    <h3>Product Manager - AI/ML</h3>
+                    <span class="job-status">Active</span>
+                </div>
+                <div class="job-posted-info">
+                    <p class="company-name">InnovateLabs</p>
+                    <p class="job-location">📍 Mumbai</p>
+                    <p class="job-paid">₹12-18 LPA</p>
+                </div>
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 4px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem;"><strong>Posted:</strong> 8 days ago</p>
+                    <p style="margin: 0; font-size: 0.875rem;"><strong>Applications:</strong> 18</p>
+                </div>
+                <button class="btn-outline-small" style="width: 100%;">View Applications</button>
+            </div>
+
+            <div class="job-posted-card">
+                <div class="job-posted-header">
+                    <h3>Data Science Internship</h3>
+                    <span class="job-status">Active</span>
+                </div>
+                <div class="job-posted-info">
+                    <p class="company-name">StartupHub Analytics</p>
+                    <p class="job-location">📍 Remote</p>
+                    <p class="job-paid">₹50K - ₹70K/month</p>
+                </div>
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 4px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem;"><strong>Posted:</strong> 5 days ago</p>
+                    <p style="margin: 0; font-size: 0.875rem;"><strong>Applications:</strong> 32</p>
+                </div>
+                <button class="btn-outline-small" style="width: 100%;">View Applications</button>
+            </div>
+
+            <div class="job-posted-card">
+                <div class="job-posted-header">
+                    <h3>Frontend Engineer</h3>
+                    <span class="job-status">Active</span>
+                </div>
+                <div class="job-posted-info">
+                    <p class="company-name">CreativeStudio</p>
+                    <p class="job-location">📍 Bangalore</p>
+                    <p class="job-paid">₹8-12 LPA</p>
+                </div>
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 4px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem;"><strong>Posted:</strong> 3 days ago</p>
+                    <p style="margin: 0; font-size: 0.875rem;"><strong>Applications:</strong> 15</p>
+                </div>
+                <button class="btn-outline-small" style="width: 100%;">View Applications</button>
+            </div>
+
+            <div class="job-posted-card">
+                <div class="job-posted-header">
+                    <h3>DevOps Engineer</h3>
+                    <span class="job-status">Closed</span>
+                </div>
+                <div class="job-posted-info">
+                    <p class="company-name">TechCorp</p>
+                    <p class="job-location">📍 Delhi</p>
+                    <p class="job-paid">₹14-16 LPA</p>
+                </div>
+                <div style="padding: 1rem; background: #f9fafb; border-radius: 4px; margin: 1rem 0;">
+                    <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem;"><strong>Posted:</strong> 20 days ago</p>
+                    <p style="margin: 0; font-size: 0.875rem;"><strong>Selected:</strong> 1 candidate</p>
+                </div>
+                <button class="btn-outline-small" style="width: 100%;">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Posting Modal -->
+    <div id="jobModal" class="modal-large" style="display: none;">
+        <div class="modal-content-large">
+            <span class="close" onclick="closeJobModal()">&times;</span>
+            <h2>Post New Job Opportunity</h2>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label>Job Title *</label>
+                    <input type="text" required placeholder="e.g., Senior Software Engineer">
+                </div>
+
+                <div class="form-group">
+                    <label>Company Name *</label>
+                    <input type="text" required placeholder="Your company name">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Location *</label>
+                        <input type="text" required placeholder="e.g., Bangalore">
+                    </div>
+                    <div class="form-group">
+                        <label>Job Type *</label>
+                        <select required>
+                            <option value="">Select type...</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="internship">Internship</option>
+                            <option value="contract">Contract</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Salary Range (Min) *</label>
+                        <input type="number" required placeholder="e.g., 15">
+                    </div>
+                    <div class="form-group">
+                        <label>Salary Range (Max) *</label>
+                        <input type="number" required placeholder="e.g., 20">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Job Description *</label>
+                    <textarea required rows="5" placeholder="Detailed job description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Required Skills *</label>
+                    <input type="text" required placeholder="e.g., Python, JavaScript, React (comma-separated)">
+                </div>
+
+                <div class="form-group">
+                    <label>Experience Required (years)</label>
+                    <input type="number" placeholder="e.g., 5">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Post Job</button>
+                    <button type="button" class="btn-secondary" onclick="closeJobModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AlumniHub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/alumni-dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../login.html';
+        }
+
+        function openJobModal() {
+            document.getElementById('jobModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJobModal() {
+            document.getElementById('jobModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('jobForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Job posted successfully!');
+            closeJobModal();
+            document.getElementById('jobForm').reset();
+        });
+    </script>
+</body>
+</html>

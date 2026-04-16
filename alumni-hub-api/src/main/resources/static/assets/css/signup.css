@@ -1,0 +1,440 @@
+/* ============================================
+   AlumniHub - Signup Modal Styles
+   ============================================ */
+
+/* Modal Container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    position: relative;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.modal-content .close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    color: #999;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    width: auto;
+}
+
+.modal-content .close:hover {
+    color: #2d7e3d;
+    transform: scale(1.2);
+}
+
+/* Modal Header */
+.modal-content h2 {
+    color: #2d7e3d;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+/* Signup Form */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.95rem;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form select {
+    width: 100%;
+    padding: 0.85rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="password"]:focus,
+.signup-form select:focus {
+    outline: none;
+    border-color: #2d7e3d;
+    box-shadow: 0 0 0 3px rgba(45, 126, 61, 0.1);
+}
+
+.signup-form input::placeholder {
+    color: #999;
+}
+
+.signup-form select {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232d7e3d' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+}
+
+/* Submit Button */
+.modal-form .btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background: #2d7e3d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.modal-form .btn-primary:hover {
+    background: #1f5a2b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 126, 61, 0.2);
+}
+
+.modal-form .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Loading State */
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-primary:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Success Message */
+.form-message {
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.form-message.warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* ============================================
+   VALIDATION STYLES
+   ============================================ */
+
+.signup-form input.invalid,
+.signup-form select.invalid {
+    border-color: #e74c3c;
+}
+
+.signup-form input.invalid:focus,
+.signup-form select.invalid:focus {
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.input-error {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+.input-error.show {
+    display: block;
+}
+
+.signup-form input.valid,
+.signup-form select.valid {
+    border-color: #27ae60;
+}
+
+/* ============================================
+   FORM ANIMATIONS
+   ============================================ */
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-5px);
+    }
+    20% {
+        transform: translateX(5px);
+    }
+    30% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.form-shake {
+    animation: shake 0.5s;
+}
+
+/* ============================================
+   PASSWORD STRENGTH INDICATOR
+   ============================================ */
+
+.password-strength {
+    display: none;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.password-strength.show {
+    display: block;
+}
+
+.strength-bar {
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+
+.strength-bar-fill {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+}
+
+.strength-bar-fill.weak {
+    width: 33%;
+    background: #e74c3c;
+}
+
+.strength-bar-fill.fair {
+    width: 66%;
+    background: #f4c430;
+}
+
+.strength-bar-fill.strong {
+    width: 100%;
+    background: #27ae60;
+}
+
+.strength-text {
+    color: #666;
+}
+
+.strength-text.weak {
+    color: #e74c3c;
+}
+
+.strength-text.fair {
+    color: #f39c12;
+}
+
+.strength-text.strong {
+    color: #27ae60;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        padding: 2rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-content .close {
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 600px) {
+    .modal {
+        padding: 1rem 0;
+    }
+
+    .modal-content {
+        width: 100%;
+        border-radius: 8px;
+        margin: 1rem;
+    }
+
+    .modal.active {
+        align-items: flex-start;
+        padding-top: 1rem;
+        min-height: auto;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .signup-form .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .signup-form label {
+        font-size: 0.9rem;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"],
+    .signup-form select {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-form .btn-primary {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1.25rem;
+        margin-top: 1.5rem;
+        max-width: 100%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .modal-content .close {
+        font-size: 1.25rem;
+    }
+
+    .signup-form .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"],
+    .signup-form select {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .modal-form .btn-primary {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
